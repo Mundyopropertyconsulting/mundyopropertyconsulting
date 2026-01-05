@@ -357,7 +357,7 @@ function App() {
         name="contact" 
         method="POST" 
         data-netlify="true" 
-        action="/"
+        action="/success.html"
         className="space-y-6"
       >
         {/* Vital for Netlify/React connection */}
