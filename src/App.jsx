@@ -343,34 +343,7 @@ function App() {
   </div>
 </section>
 
-      {/* Form Section */}
-      {/* <section id="form" className="py-24 bg-stone-100">
-        <div className="max-w-4xl mx-auto px-6">
-          <div className="bg-white p-12 shadow-2xl rounded-sm border border-stone-200">
-             <h2 className="text-2xl font-bold mb-10 text-center uppercase tracking-widest">Project Inquiry</h2>
-             <form action="https://api.web3forms.com/submit" method="POST" className="space-y-6">
-                <input type="hidden" name="access_key" value="YOUR_ACCESS_KEY_HERE" />
-                <div className="grid md:grid-cols-2 gap-6">
-                  <input type="text" name="name" placeholder="Name" required className="w-full p-4 border border-stone-200 outline-none focus:border-amber-700" />
-                  <input type="email" name="email" placeholder="Email" required className="w-full p-4 border border-stone-200 outline-none focus:border-amber-700" />
-                </div>
-                <textarea name="message" placeholder="Message" required className="w-full p-4 border border-stone-200 h-32 outline-none focus:border-amber-700"></textarea>
-                
-              
-      <button 
-  type="submit" 
-  className="w-full bg-amber-800  text-white py-5 rounded-sm font-black uppercase tracking-[0.3em] 
-             transition-all duration-300 
-             shadow-[0_15px_30px_-5px_rgba(51,65,85,0.4)] 
-             hover:shadow-[0_20px_40px_-5px_rgba(51,65,85,0.5)] 
-             hover:-translate-y-1 active:translate-y-0 active:scale-[0.98]"
->
-  Send Inquiry
-</button>
-             </form>
-          </div>
-        </div>
-      </section> */}
+     
       <section id="form" className="py-24 bg-stone-100">
   <div className="max-w-4xl mx-auto px-6">
     <div className="bg-white p-12 shadow-2xl rounded-sm border border-stone-200">
@@ -384,44 +357,51 @@ function App() {
         name="contact" 
         method="POST" 
         data-netlify="true" 
+        action="/index.html"
         className="space-y-6"
       >
-        {/* Required hidden input for Netlify forms in React/Vite */}
+        {/* Vital for Netlify/React connection */}
         <input type="hidden" name="form-name" value="contact" />
 
         <div className="grid md:grid-cols-2 gap-6">
-          <input 
-            type="text" 
-            name="name" 
-            placeholder="Name" 
-            required 
-            className="w-full p-4 border border-stone-200 outline-none focus:border-orange-600 transition-colors" 
-          />
-          <input 
-            type="email" 
-            name="email" 
-            placeholder="Email" 
-            required 
-            className="w-full p-4 border border-stone-200 outline-none focus:border-orange-600 transition-colors" 
-          />
+          <div className="space-y-2">
+            <label className="text-[10px] uppercase tracking-widest font-bold text-stone-400">Full Name</label>
+            <input 
+              type="text" 
+              name="name" 
+              placeholder="full name" 
+              required 
+              className="w-full p-4 border border-stone-200 outline-none focus:border-orange-600 transition-colors bg-stone-50" 
+            />
+          </div>
+          <div className="space-y-2">
+            <label className="text-[10px] uppercase tracking-widest font-bold text-stone-400">Email Address</label>
+            <input 
+              type="email" 
+              name="email" 
+              placeholder="office@mundyo.com" 
+              required 
+              className="w-full p-4 border border-stone-200 outline-none focus:border-orange-600 transition-colors bg-stone-50" 
+            />
+          </div>
         </div>
 
-        <textarea 
-          name="message" 
-          placeholder="Message" 
-          required 
-          className="w-full p-4 border border-stone-200 h-32 outline-none focus:border-orange-600 transition-colors"
-        ></textarea>
-        
+        <div className="space-y-2">
+          <label className="text-[10px] uppercase tracking-widest font-bold text-stone-400">Message / Project Details</label>
+          <textarea 
+            name="message" 
+            rows="6" 
+            placeholder="Tell us about your property vision..." 
+            required
+            className="w-full p-4 border border-stone-200 outline-none focus:border-orange-600 transition-colors bg-stone-50 resize-none"
+          ></textarea>
+        </div>
+
         <button 
           type="submit" 
-          className="w-full bg-slate-900 text-white py-5 rounded-sm font-black uppercase tracking-[0.3em] 
-                     transition-all duration-300 
-                     shadow-[0_15px_30px_-5px_rgba(51,65,85,0.4)] 
-                     hover:bg-orange-600 hover:shadow-[0_20px_40px_-5px_rgba(234,88,12,0.3)] 
-                     hover:-translate-y-1 active:translate-y-0 active:scale-[0.98]"
+          className="w-full bg-slate-900 hover:bg-orange-600 text-white font-bold uppercase tracking-[0.3em] py-5 transition-all duration-500 shadow-xl"
         >
-          Send Inquiry
+          Submit Inquiry
         </button>
       </form>
     </div>
@@ -449,8 +429,8 @@ function App() {
         <h4 className="text-orange-500 text-[10px] font-bold uppercase tracking-[0.3em] mb-6">Expertise</h4>
         <ul className="space-y-4 text-sm text-slate-300 font-light">
           <li className="hover:text-orange-500 cursor-pointer transition-colors">Chez Mundyo Cabins</li>
-          <li className="hover:text-orange-500 cursor-pointer transition-colors">USA Partnership</li>
-          <li className="hover:text-orange-500 cursor-pointer transition-colors">Heaven on Earth</li>
+          <li className="hover:text-orange-500 cursor-pointer transition-colors">Luxury Remodeling</li>
+          <li className="hover:text-orange-500 cursor-pointer transition-colors">Smart Home Integration</li>
         </ul>
       </div>
 
@@ -459,6 +439,7 @@ function App() {
         <h4 className="text-orange-500 text-[10px] font-bold uppercase tracking-[0.3em] mb-6">Inquiries</h4>
         <ul className="space-y-4 text-sm text-slate-300 font-light">
           <li>lionel@mundyopropertyconsulting.com</li>
+          <li> +1 (978) 596-5883/ (224) 493-5793</li>
           <li>Based in USA</li>
           <li className="text-orange-500 font-bold uppercase tracking-widest text-[10px] pt-2">Available for Global Projects</li>
         </ul>
@@ -489,7 +470,8 @@ function App() {
     </div>
 
     {/* Bottom Bar */}
-    <div className="pt-8 border-t border-slate-800 flex flex-col md:flex-row justify-between items-center text-[10px] uppercase tracking-[0.4em] text-slate-500">
+    <div className="pt-8 border-t border-slate-800 flex flex-col md:flex-row justify-between items-center
+     text-[10px] uppercase tracking-[0.4em] text-slate-500">
       <p>© 2026 Mundyo Property Consulting</p>
       <p className="mt-4 md:mt-0">Private & Confidential</p>
     </div>
