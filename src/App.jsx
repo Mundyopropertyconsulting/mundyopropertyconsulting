@@ -1,8 +1,24 @@
 
 
-import React from 'react';
-
+// import React from 'react';
+import React, { useState } from 'react';
+import Success from './Success'; // This pulls in your Success.jsx file
 function App() {
+
+const [isSubmitted, setIsSubmitted] = useState(false);
+
+  // 2. Added this function to handle the button click
+  const handleSubmit = (e) => {
+    // We do NOT preventDefault here because we want Netlify to receive the data
+    setIsSubmitted(true);
+    window.scrollTo(0, 0);
+  };
+
+  // 3. If form is submitted, show your Success.jsx component
+  if (isSubmitted) {
+    return <Success />;
+  }
+
   return (
     <div className="min-h-screen bg-stone-50 text-stone-900 font-sans selection:bg-amber-200 scroll-smooth">
       {/* Navbar */}
@@ -185,38 +201,46 @@ function App() {
   </div>
 </section>
 
-
 <section className="py-24 bg-stone-50 overflow-hidden">
   <div className="max-w-7xl mx-auto px-6">
     <div className="relative rounded-3xl overflow-hidden shadow-2xl group">
-      {/* High-Quality A-Frame 3D Render Image */}
+      
+      {/* 3D Render Image - Slightly shorter on mobile to prevent scrolling issues */}
       <img 
-
         src="/mundyocabin.png"
         alt="Chez Mundyo A-Frame Cabin" 
-        className="w-full h-[700px] object-cover scale-105 group-hover:scale-100 transition-transform duration-[2000ms]"
+        className="w-full h-[450px] md:h-[700px] object-cover scale-105 group-hover:scale-100 transition-transform duration-[2000ms]"
       />
       
-      {/* Dark Overlay for better text readability */}
+      {/* Dark Overlay */}
       <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors duration-700"></div>
       
-      {/* The "Floating Glass" Card */}
-      <div className="absolute top-10 left-6 right-6 md:left-20 md:max-w-md bg-white/10 backdrop-blur-2xl p-8 md:p-12 rounded-2xl border border-white/20 shadow-2xl">
-        <h3 className="text-orange-500 font-bold uppercase tracking-[0.4em] text-[10px] mb-4">
+      {/* The "Floating Glass" Card - Width restricted on mobile (w-[85%]) and centered */}
+      <div className="absolute bottom-6 left-1/2 -translate-x-1/2 w-[85%] md:translate-x-0 md:left-20 md:bottom-auto md:top-10 md:w-auto md:max-w-md bg-white/10 backdrop-blur-2xl p-5 md:p-12 rounded-2xl border border-white/20 shadow-2xl">
+        <h3 className="text-orange-500 font-bold uppercase tracking-[0.4em] text-[8px] md:text-[10px] mb-2 md:mb-4">
           Featured Project
         </h3>
-        <h2 className="text-4xl md:text-5xl font-black text-white uppercase tracking-tighter mb-6 leading-tight">
+        <h2 className="text-2xl md:text-5xl font-black text-white uppercase tracking-tighter mb-3 md:mb-6 leading-tight">
           Chez Mundyo <br/><span className="text-orange-500">Cabin</span>
         </h2>
-        <p className="text-white/90 leading-relaxed mb-8 font-light italic">
-          In partnership with <strong className="font-bold text-white">Avrame USA</strong>, we integrate the pinnacle of automated technology into the iconic A-frame silhouette. 
+        <p className="text-white/90 text-[11px] md:text-base leading-relaxed mb-4 md:mb-8 font-light italic">
+          In partnership with <strong className="font-bold text-white">Avrame USA</strong>, we integrate automated luxury into the iconic A-frame. 
         </p>
-        <p className="text-white/70 text-sm leading-relaxed mb-8">
+        
+        {/* Only show this on Tablet/Desktop to keep mobile view clean */}
+        <p className="hidden md:block text-white/70 text-sm leading-relaxed mb-8">
           This is where modern engineering meets the serenity of nature—rendered in high-fidelity 3D for the visionary investor.
         </p>
-        <div className="inline-block border-b-2 border-orange-500 pb-2 text-white font-bold uppercase tracking-widest text-[10px] cursor-pointer hover:text-orange-400 hover:border-orange-400 transition-all">
-          Experience the Render
-        </div>
+        
+       <a 
+  href="https://www.avrameusa.com/" 
+  target="_blank" 
+  rel="noopener noreferrer"
+  className="inline-block border-b border-orange-500 pb-1 text-white font-bold uppercase tracking-widest text-[8px] md:text-[10px] cursor-pointer hover:text-orange-400 transition-all"
+>
+  Experience the Render
+</a>
+
       </div>
     </div>
   </div>
@@ -357,6 +381,7 @@ function App() {
         name="contact" 
         method="POST" 
         data-netlify="true" 
+        onSubmit={handleSubmit}
         action="/success.html"
         className="space-y-6"
       >
