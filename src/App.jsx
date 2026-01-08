@@ -3,18 +3,37 @@
 // import React from 'react';
 import React, { useState } from 'react';
 import Success from './Success'; // This pulls in your Success.jsx file
+
+
 function App() {
+  const [isSubmitted, setIsSubmitted] = useState(false);
 
-const [isSubmitted, setIsSubmitted] = useState(false);
-
-  // 2. Added this function to handle the button click
   const handleSubmit = (e) => {
-    // We do NOT preventDefault here because we want Netlify to receive the data
-    setIsSubmitted(true);
-    window.scrollTo(0, 0);
+    e.preventDefault(); // Now we prevent default because we are handling the send manually via fetch
+    
+    const myForm = e.target;
+    const formData = new FormData(myForm);
+
+    formData.append("form-name", "contact");
+    
+    // This sends the data to Netlify
+    fetch("/", {
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: new URLSearchParams(formData).toString(),
+    })
+      .then((response) => {
+        if (response.ok){
+        // Only show success after the data is safely sent
+        setIsSubmitted(true);
+        window.scrollTo(0, 0);
+      } else {
+        throw new Error ("network response was not ok");
+      }
+      })
+      .catch((error) => alert("Submission error: " + error));
   };
 
-  // 3. If form is submitted, show your Success.jsx component
   if (isSubmitted) {
     return <Success />;
   }
@@ -382,7 +401,7 @@ const [isSubmitted, setIsSubmitted] = useState(false);
         method="POST" 
         data-netlify="true" 
         onSubmit={handleSubmit}
-        action="/success.html"
+        // action="/success.html"
         className="space-y-6"
       >
         {/* Vital for Netlify/React connection */}
