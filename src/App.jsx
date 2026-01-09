@@ -247,9 +247,16 @@ function App() {
 
     <div className="grid grid-cols-1 md:grid-cols-12 gap-6">
       
-      {/* Project 1: Abandoned House to Masterpiece */}
+      {/* Project 1: Abandoned to Masterpiece */}
       <div className="md:col-span-7 group relative h-[500px] md:h-[650px] overflow-hidden rounded-xl shadow-lg bg-white cursor-pointer">
-        <div className="md:hidden absolute inset-0"><img src="/9BFD83C8-1D55-42CB-AD22-102C63027179.jpg" className="w-full h-full object-cover" alt="Masterpiece" /></div>
+        {/* PHONE VIEW: Project 1 Mobile Image */}
+        <img 
+          src="/IMG_6601.jpg" 
+          className="md:hidden w-full h-full object-cover" 
+          alt="Luxury Manor Transformation" 
+        />
+        
+        {/* DESKTOP VIEW: Video Transformation */}
         <div className="hidden md:block absolute inset-0">
           <img src="/9BFD83C8-1D55-42CB-AD22-102C63027179.jpg" className="absolute inset-0 w-full h-full object-cover z-10 opacity-100 group-hover:opacity-0 transition-all duration-[1.2s]" alt="Before" />
           <video autoPlay muted loop playsInline className="absolute inset-0 w-full h-full object-cover z-0 group-hover:z-20 opacity-0 group-hover:opacity-100 transition-opacity duration-[1.2s]">
@@ -262,9 +269,15 @@ function App() {
         </div>
       </div>
 
-      {/* Project 2: Luxury Bathroom */}
+      {/* Project 2: Luxury Bathroom (tall) */}
       <div className="md:col-span-5 group relative h-[500px] md:h-[650px] overflow-hidden rounded-xl shadow-lg bg-white cursor-pointer">
-        <div className="md:hidden absolute inset-0"><img src="/IMG_4884.JPG" className="w-full h-full object-cover" alt="Bathroom" /></div>
+        {/* PHONE VIEW: Project 2 Mobile Image */}
+        <img 
+          src="/tv.jpg" 
+          className="md:hidden w-full h-full object-cover" 
+          alt="Luxury Suite Transformation" 
+        />
+        {/* DESKTOP VIEW */}
         <div className="hidden md:block absolute inset-0">
           <img src="/IMG_4884.JPG" className="absolute inset-0 w-full h-full object-cover z-10 opacity-100 group-hover:opacity-0 transition-all duration-[1.2s]" alt="Before" />
           <video autoPlay muted loop playsInline className="absolute inset-0 w-full h-full object-cover z-0 group-hover:z-20 opacity-0 group-hover:opacity-100 transition-opacity duration-[1.2s]">
@@ -279,7 +292,13 @@ function App() {
 
       {/* Project 3: Smart Stairs */}
       <div className="md:col-span-6 group relative h-[400px] md:h-[500px] overflow-hidden rounded-xl shadow-lg bg-white cursor-pointer">
-        <div className="md:hidden absolute inset-0"><img src="/IMG_1666.jpg" className="w-full h-full object-cover" alt="Stairs" /></div>
+        {/* PHONE VIEW: Project 3 Mobile Image */}
+        <img 
+          src="/topview.jpg" 
+          className="md:hidden w-full h-full object-cover" 
+          alt="Smart Stairs Transformation" 
+        />
+        {/* DESKTOP VIEW */}
         <div className="hidden md:block absolute inset-0">
           <img src="/IMG_1666.jpg" className="absolute inset-0 w-full h-full object-cover z-10 opacity-100 group-hover:opacity-0 transition-all duration-[1.2s]" alt="Before" />
           <video autoPlay muted loop playsInline className="absolute inset-0 w-full h-full object-cover z-0 group-hover:z-20 opacity-0 group-hover:opacity-100 transition-opacity duration-[1.2s]">
@@ -294,7 +313,13 @@ function App() {
 
       {/* Project 4: Lounge & Media Wall */}
       <div className="md:col-span-6 group relative h-[400px] md:h-[500px] overflow-hidden rounded-xl shadow-lg bg-white cursor-pointer">
-        <div className="md:hidden absolute inset-0"><img src="/IMG_6165.jpg" className="w-full h-full object-cover" alt="Media Wall" /></div>
+        {/* PHONE VIEW: Project 4 Mobile Image */}
+        <img 
+          src="/IMG_6165.jpg" 
+          className="md:hidden w-full h-full object-cover" 
+          alt="Media Wall & Bath Suite" 
+        />
+        {/* DESKTOP VIEW */}
         <div className="hidden md:block absolute inset-0">
           <img src="/IMG_6165.jpg" className="absolute inset-0 w-full h-full object-cover z-10 opacity-100 group-hover:opacity-0 transition-all duration-[1.2s]" alt="Before" />
           <video autoPlay muted loop playsInline className="absolute inset-0 w-full h-full object-cover z-0 group-hover:z-20 opacity-0 group-hover:opacity-100 transition-opacity duration-[1.2s]">
@@ -308,15 +333,8 @@ function App() {
       </div>
 
     </div>
-    
-    <div className="mt-20 text-center">
-      <a href="#form" className="inline-block bg-orange-600 hover:bg-orange-700 text-white px-12 py-5 rounded-full font-bold uppercase tracking-[0.2em] text-xs transition-all shadow-xl">
-        Partner With Us
-      </a>
-    </div>
   </div>
 </section>
-
 
 <section className="py-24 bg-stone-50 overflow-hidden">
   <div className="max-w-7xl mx-auto px-6">
