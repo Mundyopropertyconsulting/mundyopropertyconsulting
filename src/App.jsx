@@ -1,35 +1,29 @@
-
-
-// import React from 'react';
 import React, { useState } from 'react';
-import Success from './Success'; // This pulls in your Success.jsx file
-
+import { Menu, X } from 'lucide-react'; // Make sure to run 'npm install lucide-react'
+import Success from './Success';
 
 function App() {
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false); // New state for mobile menu
 
   const handleSubmit = (e) => {
-    e.preventDefault(); // Now we prevent default because we are handling the send manually via fetch
-    
+    e.preventDefault();
     const myForm = e.target;
     const formData = new FormData(myForm);
-
     formData.append("form-name", "contact");
     
-    // This sends the data to Netlify
     fetch("/", {
       method: "POST",
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
       body: new URLSearchParams(formData).toString(),
     })
       .then((response) => {
-        if (response.ok){
-        // Only show success after the data is safely sent
-        setIsSubmitted(true);
-        window.scrollTo(0, 0);
-      } else {
-        throw new Error ("network response was not ok");
-      }
+        if (response.ok) {
+          setIsSubmitted(true);
+          window.scrollTo(0, 0);
+        } else {
+          throw new Error("network response was not ok");
+        }
       })
       .catch((error) => alert("Submission error: " + error));
   };
@@ -41,18 +35,40 @@ function App() {
   return (
     <div className="min-h-screen bg-stone-50 text-stone-900 font-sans selection:bg-amber-200 scroll-smooth">
       {/* Navbar */}
-      <nav className="fixed top-0 w-full bg-white/90 backdrop-blur-md border-b border-stone-200 z-50">
+      <nav className="fixed top-0 w-full bg-white/90 backdrop-blur-md border-b border-stone-200 z-[100]">
         <div className="max-w-7xl mx-auto px-6 py-5 flex justify-between items-center">
-        <h1 className="text-2xl font-black tracking-tighter text-slate-700">
-  Mundyo Property Consulting
-</h1>
-       
+          <h1 className="text-2xl font-black tracking-tighter text-slate-700">
+            Mundyo Property Consulting
+          </h1>
+
+          {/* Desktop Links (Hidden on mobile) */}
           <div className="hidden md:flex space-x-10 text-xs font-bold uppercase tracking-widest text-stone-600 items-center">
-  <a href="#" className="hover:text-orange-600 transition">Home</a>
-  <a href="#info" className="hover:text-orange-600 transition">Our Vision</a>
-  <a href="#form" className="hover:text-orange-600 transition">Form</a>
-  <a href="#footer" className="hover:text-orange-600 transition">Contact</a>
-</div>
+            <a href="#" className="hover:text-orange-600 transition">Home</a>
+            <a href="#info" className="hover:text-orange-600 transition">Our Vision</a>
+            <a href="#form" className="hover:text-orange-600 transition">Form</a>
+            <a href="#footer" className="hover:text-orange-600 transition">Contact</a>
+          </div>
+
+          {/* Mobile Toggle Button (Visible only on mobile) */}
+          <button 
+            className="md:hidden text-slate-700" 
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+          >
+            {isMenuOpen ? <X size={28} /> : <Menu size={28} />}
+          </button>
+        </div>
+
+        {/* Mobile Slide-Down Menu */}
+        <div className={`
+          md:hidden absolute top-full left-0 w-full bg-white border-b border-stone-200 transition-all duration-300 ease-in-out overflow-hidden
+          ${isMenuOpen ? 'max-h-64 opacity-100' : 'max-h-0 opacity-0 pointer-events-none'}
+        `}>
+          <div className="flex flex-col p-6 space-y-4 text-xs font-bold uppercase tracking-widest text-stone-600">
+            <a href="#" onClick={() => setIsMenuOpen(false)} className="hover:text-orange-600">Home</a>
+            <a href="#info" onClick={() => setIsMenuOpen(false)} className="hover:text-orange-600">Our Vision</a>
+            <a href="#form" onClick={() => setIsMenuOpen(false)} className="hover:text-orange-600">Form</a>
+            <a href="#footer" onClick={() => setIsMenuOpen(false)} className="hover:text-orange-600">Contact</a>
+          </div>
         </div>
       </nav>
 
