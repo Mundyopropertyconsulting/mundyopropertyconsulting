@@ -231,6 +231,7 @@ function App() {
 
 
 {/* Breathtaking Transformation Gallery */}
+
 {/* Breathtaking Transformation Gallery */}
 <section className="py-24 bg-stone-50 text-stone-900">
   <div className="max-w-7xl mx-auto px-6">
@@ -244,93 +245,77 @@ function App() {
       </p>
     </div>
 
-    {/* The Asymmetric Grid */}
     <div className="grid grid-cols-1 md:grid-cols-12 gap-6">
       
-      {/* Project 1: Abandoned to Masterpiece (Wide) */}
+      {/* Project 1: Abandoned House to Masterpiece */}
       <div className="md:col-span-7 group relative h-[500px] md:h-[650px] overflow-hidden rounded-xl shadow-lg bg-white cursor-pointer">
-        <img 
-          src="/9BFD83C8-1D55-42CB-AD22-102C63027179.jpg" 
-          className="absolute inset-0 w-full h-full object-cover z-10 opacity-100 group-hover:opacity-0 transition-all duration-[1.2s]" 
-          alt="Abandoned House Before" 
-        />
-        <video autoPlay muted loop playsInline className="absolute inset-0 w-full h-full object-cover z-0 group-hover:z-20 opacity-0 group-hover:opacity-100 transition-opacity duration-[1.2s]">
-          <source src="/video1.mp4" type="video/mp4" />
-        </video>
-        <div className="absolute inset-0 flex flex-col justify-end p-8 bg-gradient-to-t from-black/70 via-transparent to-transparent z-30 opacity-0 group-hover:opacity-100 transition-opacity duration-700">
+        <div className="md:hidden absolute inset-0"><img src="/9BFD83C8-1D55-42CB-AD22-102C63027179.jpg" className="w-full h-full object-cover" alt="Masterpiece" /></div>
+        <div className="hidden md:block absolute inset-0">
+          <img src="/9BFD83C8-1D55-42CB-AD22-102C63027179.jpg" className="absolute inset-0 w-full h-full object-cover z-10 opacity-100 group-hover:opacity-0 transition-all duration-[1.2s]" alt="Before" />
+          <video autoPlay muted loop playsInline className="absolute inset-0 w-full h-full object-cover z-0 group-hover:z-20 opacity-0 group-hover:opacity-100 transition-opacity duration-[1.2s]">
+            <source src="/video1.mp4" type="video/mp4" />
+          </video>
+        </div>
+        <div className="absolute inset-0 flex flex-col justify-end p-8 bg-gradient-to-t from-black/80 via-transparent to-transparent z-30 opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-700">
           <p className="text-orange-400 text-[10px] font-black uppercase tracking-[0.4em] mb-2">Total Estate Revival</p>
           <h4 className="text-2xl text-white font-light tracking-widest uppercase">The Sovereign Manor</h4>
-          <p className="text-white/70 text-xs mt-2 italic">From abandoned structure to luxury architectural masterpiece.</p>
         </div>
       </div>
 
-      {/* Project 2: Destroyed to Luxury Bathroom (Tall) */}
+      {/* Project 2: Luxury Bathroom */}
       <div className="md:col-span-5 group relative h-[500px] md:h-[650px] overflow-hidden rounded-xl shadow-lg bg-white cursor-pointer">
-        <img 
-          src="/IMG_4884.JPG" 
-          className="absolute inset-0 w-full h-full object-cover z-10 opacity-100 group-hover:opacity-0 transition-all duration-[1.2s]" 
-          alt="Destroyed Bathroom Before" 
-        />
-        <video autoPlay muted loop playsInline className="absolute inset-0 w-full h-full object-cover z-0 group-hover:z-20 opacity-0 group-hover:opacity-100 transition-opacity duration-[1.2s]">
-          <source src="/e700e64526b34585986a56695a9a71e7.mov" type="video/quicktime" />
-          <source src="/e700e64526b34585986a56695a9a71e7.mov" type="video/mp4" />
-        </video>
-        <div className="absolute inset-0 flex flex-col justify-end p-8 bg-gradient-to-t from-black/70 via-transparent to-transparent z-30 opacity-0 group-hover:opacity-100 transition-opacity duration-700">
+        <div className="md:hidden absolute inset-0"><img src="/IMG_4884.JPG" className="w-full h-full object-cover" alt="Bathroom" /></div>
+        <div className="hidden md:block absolute inset-0">
+          <img src="/IMG_4884.JPG" className="absolute inset-0 w-full h-full object-cover z-10 opacity-100 group-hover:opacity-0 transition-all duration-[1.2s]" alt="Before" />
+          <video autoPlay muted loop playsInline className="absolute inset-0 w-full h-full object-cover z-0 group-hover:z-20 opacity-0 group-hover:opacity-100 transition-opacity duration-[1.2s]">
+            <source src="/e700e64526b34585986a56695a9a71e7.mov" />
+          </video>
+        </div>
+        <div className="absolute inset-0 flex flex-col justify-end p-8 bg-gradient-to-t from-black/80 via-transparent to-transparent z-30 opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-700">
           <p className="text-orange-400 text-[10px] font-black uppercase tracking-[0.4em] mb-2">Internal Alchemy</p>
           <h4 className="text-2xl text-white font-light tracking-widest uppercase">The Quartz Sanctuary</h4>
-          <p className="text-white/70 text-xs mt-2 italic">Reclaiming destroyed spaces for ultimate relaxation.</p>
         </div>
       </div>
 
-      {/* Project 3: Smart Stairs (Using the Bathroom Video Fix) */}
+      {/* Project 3: Smart Stairs */}
       <div className="md:col-span-6 group relative h-[400px] md:h-[500px] overflow-hidden rounded-xl shadow-lg bg-white cursor-pointer">
-        <img 
-          src="/IMG_1666.jpg" 
-          className="absolute inset-0 w-full h-full object-cover z-10 opacity-100 group-hover:opacity-0 transition-all duration-[1.2s]" 
-          alt="Stairs Before" 
-        />
-        <video autoPlay muted loop playsInline className="absolute inset-0 w-full h-full object-cover z-0 group-hover:z-20 opacity-0 group-hover:opacity-100 transition-opacity duration-[1.2s]">
-          <source src="/stair.mp4" type="video/quicktime" />
-          <source src="/stair.mp4" type="video/mp4" />
-        </video>
-        <div className="absolute inset-0 flex flex-col justify-end p-8 bg-gradient-to-t from-black/70 via-transparent to-transparent z-30 opacity-0 group-hover:opacity-100 transition-opacity duration-700">
+        <div className="md:hidden absolute inset-0"><img src="/IMG_1666.jpg" className="w-full h-full object-cover" alt="Stairs" /></div>
+        <div className="hidden md:block absolute inset-0">
+          <img src="/IMG_1666.jpg" className="absolute inset-0 w-full h-full object-cover z-10 opacity-100 group-hover:opacity-0 transition-all duration-[1.2s]" alt="Before" />
+          <video autoPlay muted loop playsInline className="absolute inset-0 w-full h-full object-cover z-0 group-hover:z-20 opacity-0 group-hover:opacity-100 transition-opacity duration-[1.2s]">
+            <source src="/stair.mp4" type="video/mp4" />
+          </video>
+        </div>
+        <div className="absolute inset-0 flex flex-col justify-end p-8 bg-gradient-to-t from-black/80 via-transparent to-transparent z-30 opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-700">
           <p className="text-orange-400 text-[10px] font-black uppercase tracking-[0.4em] mb-2">Smart Integration</p>
           <h4 className="text-2xl text-white font-light tracking-widest uppercase">Motion-Sync Ascent</h4>
-          <p className="text-white/70 text-xs mt-2 italic">Sensor-activated illumination for a sophisticated home transition.</p>
         </div>
       </div>
 
       {/* Project 4: Lounge & Media Wall */}
       <div className="md:col-span-6 group relative h-[400px] md:h-[500px] overflow-hidden rounded-xl shadow-lg bg-white cursor-pointer">
-        <img 
-          src="/IMG_6165.jpg" 
-          className="absolute inset-0 w-full h-full object-cover z-10 opacity-100 group-hover:opacity-0 transition-all duration-[1.2s]" 
-          alt="Lounge Before" 
-        />
-        <video autoPlay muted loop playsInline className="absolute inset-0 w-full h-full object-cover z-0 group-hover:z-20 opacity-0 group-hover:opacity-100 transition-opacity duration-[1.2s]">
-          <source src="/lounge.mp4" type="video/mp4" />
-        </video>
-        <div className="absolute inset-0 flex flex-col justify-end p-8 bg-gradient-to-t from-black/70 via-transparent to-transparent z-30 opacity-0 group-hover:opacity-100 transition-opacity duration-700">
+        <div className="md:hidden absolute inset-0"><img src="/IMG_6165.jpg" className="w-full h-full object-cover" alt="Media Wall" /></div>
+        <div className="hidden md:block absolute inset-0">
+          <img src="/IMG_6165.jpg" className="absolute inset-0 w-full h-full object-cover z-10 opacity-100 group-hover:opacity-0 transition-all duration-[1.2s]" alt="Before" />
+          <video autoPlay muted loop playsInline className="absolute inset-0 w-full h-full object-cover z-0 group-hover:z-20 opacity-0 group-hover:opacity-100 transition-opacity duration-[1.2s]">
+            <source src="/lounge.mp4" type="video/mp4" />
+          </video>
+        </div>
+        <div className="absolute inset-0 flex flex-col justify-end p-8 bg-gradient-to-t from-black/80 via-transparent to-transparent z-30 opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-700">
           <p className="text-orange-400 text-[10px] font-black uppercase tracking-[0.4em] mb-2">Modern Living</p>
           <h4 className="text-2xl text-white font-light tracking-widest uppercase">3D Media Enclave</h4>
-          <p className="text-white/70 text-xs mt-2 italic">Custom media walls and luxury bathroom suites.</p>
         </div>
       </div>
 
     </div>
-
-    {/* CTA Button */}
+    
     <div className="mt-20 text-center">
-      <a 
-        href="#form" 
-        className="inline-block bg-orange-600 hover:bg-orange-700 text-white px-12 py-5 rounded-full font-bold uppercase tracking-[0.2em] text-xs transition-all shadow-xl hover:shadow-orange-200"
-      >
+      <a href="#form" className="inline-block bg-orange-600 hover:bg-orange-700 text-white px-12 py-5 rounded-full font-bold uppercase tracking-[0.2em] text-xs transition-all shadow-xl">
         Partner With Us
       </a>
     </div>
   </div>
 </section>
-
 
 
 <section className="py-24 bg-stone-50 overflow-hidden">
