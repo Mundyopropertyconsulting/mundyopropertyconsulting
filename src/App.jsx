@@ -142,7 +142,7 @@ function App() {
       className="absolute inset-0 w-full h-full object-cover opacity-80"
     >
       <source src="/lounge.mp4" type="video/mp4" />
-      Your browser does not support the video tag.
+      {/* Your browser does not support the video tag. */}
     </video>
 
     {/* Luxury Overlay Mask */}
@@ -171,30 +171,36 @@ function App() {
 
       {/* Info Section */}
    
-
+{/* Info Section */}
 <section id="info" className="py-32 bg-white">
   <div className="max-w-4xl mx-auto px-6 text-center">
-    <h3 className="text-orange-600 text-xs font-bold uppercase tracking-[0.5em] mb-12">The Mundyo Advantage</h3>
+    <h3 className="text-orange-600 text-xs font-bold uppercase tracking-[0.5em] mb-16">The Mundyo Advantage</h3>
     
-    {/* Paragraph 1: The Core Vision */}
-    <div className="mb-16">
-      <p className="text-stone-500 text-lg leading-relaxed max-w-2xl mx-auto italic">
-        At Mundyo Property Consulting, we specialize in designing the next generation of automated luxury homes. 
-        Invest in the future, then relax—we’ve got it from here.
+    {/* Paragraph 1: The Model Speech / Core Mission */}
+    <div className="mb-20">
+      <h4 className="text-slate-900 text-sm font-bold uppercase tracking-[0.3em] mb-4">Our Mission</h4>
+      <p className="text-slate-800 text-2xl md:text-3xl leading-snug max-w-3xl mx-auto font-serif italic">
+        "We help regular people make passive income through real estate. Join us as we turn  
+         <span className="text-orange-600"> ugly houses </span> 
+          and underutilized land into beautiful masterpieces, that are valued at 
+         <span className="text-orange-600"> luxury prices</span> and generate 
+         <span className="text-orange-600"> cash flow </span>."
       </p>
       <div className="mt-12 h-px w-24 bg-orange-600/20 mx-auto"></div>
     </div>
 
-    {/* Paragraph 2: Range & Flexibility (Flip to Commercial) */}
-    <div className="mb-16">
+    {/* Paragraph 2: Range & Flexibility */}
+    <div className="mb-20">
+      <h4 className="text-slate-900 text-sm font-bold uppercase tracking-[0.3em] mb-4">Market Versatility</h4>
       <p className="text-stone-500 text-lg leading-relaxed max-w-2xl mx-auto">
         Our portfolio is borderless and diverse. From high-end residential flips and iconic A-Frame silhouettes to large-scale commercial developments, we operate across the entire United States. We transform standard structures into high-yield luxury assets, regardless of the project's initial scale.
       </p>
       <div className="mt-12 h-px w-24 bg-orange-600/20 mx-auto"></div>
     </div>
 
-    {/* Paragraph 3: Wealth Generation (The opportunity for regular/rich people) */}
-    <div className="mb-16">
+    {/* Paragraph 3: Wealth Generation */}
+    <div className="mb-20">
+      <h4 className="text-slate-900 text-sm font-bold uppercase tracking-[0.3em] mb-4">Capital Management</h4>
       <p className="text-stone-500 text-lg leading-relaxed max-w-2xl mx-auto font-medium">
         We bridge the gap between private capital and elite real estate. Whether you are seeking to grow a modest fund or deploy significant capital into estate-level mansions, Mundyo provides a passive vehicle for exceptional returns. We invite strategic partners to benefit from our expertise without the burden of management.
       </p>
@@ -202,15 +208,17 @@ function App() {
     </div>
 
     {/* Paragraph 4: Integrity & Transparency */}
-    <div className="mb-16">
+    <div className="mb-20">
+      <h4 className="text-slate-900 text-sm font-bold uppercase tracking-[0.3em] mb-4">Partner Relations</h4>
       <p className="text-stone-500 text-lg leading-relaxed max-w-2xl mx-auto">
         Integrity is our primary currency. Our partners are fully integrated into the lifecycle of the project through detailed monthly updates and full financial transparency. From the first architectural sketch to the final delivery, we take immense pride in protecting both your capital and our name.
       </p>
       <div className="mt-12 h-px w-24 bg-orange-600/20 mx-auto"></div>
     </div>
 
-    {/* Paragraph 5: Lifetime Cashflow & Rentals */}
-    <div className="mb-16">
+    {/* Paragraph 5: Lifetime Cashflow */}
+    <div className="mb-20">
+      <h4 className="text-slate-900 text-sm font-bold uppercase tracking-[0.3em] mb-4">Legacy Building</h4>
       <p className="text-stone-500 text-lg leading-relaxed max-w-2xl mx-auto">
         Beyond development, we secure your legacy through long-term rental hold strategies. By investing in Mundyo-managed projects, our partners enjoy lifetime cashflow and passive dividends. You monitor the growth; we master the operations.
       </p>
@@ -219,6 +227,111 @@ function App() {
 
   </div>
 </section>
+
+
+
+{/* Breathtaking Transformation Gallery */}
+{/* Breathtaking Transformation Gallery */}
+<section className="py-24 bg-stone-50 text-stone-900">
+  <div className="max-w-7xl mx-auto px-6">
+    <div className="mb-20">
+      <h3 className="text-orange-600 text-xs font-bold uppercase tracking-[0.5em] mb-4">The Portfolio</h3>
+      <h2 className="text-5xl md:text-7xl font-light tracking-tighter italic font-serif leading-none">
+        Concept to <span className="text-orange-600 font-sans font-black not-italic">Reality</span>
+      </h2>
+      <p className="text-stone-500 mt-6 max-w-xl font-light uppercase tracking-widest text-[10px]">
+        Witness the evolution of neglected spaces into high-yield, automated luxury assets.
+      </p>
+    </div>
+
+    {/* The Asymmetric Grid */}
+    <div className="grid grid-cols-1 md:grid-cols-12 gap-6">
+      
+      {/* Project 1: Abandoned to Masterpiece (Wide) */}
+      <div className="md:col-span-7 group relative h-[500px] md:h-[650px] overflow-hidden rounded-xl shadow-lg bg-white cursor-pointer">
+        <img 
+          src="/9BFD83C8-1D55-42CB-AD22-102C63027179.jpg" 
+          className="absolute inset-0 w-full h-full object-cover z-10 opacity-100 group-hover:opacity-0 transition-all duration-[1.2s]" 
+          alt="Abandoned House Before" 
+        />
+        <video autoPlay muted loop playsInline className="absolute inset-0 w-full h-full object-cover z-0 group-hover:z-20 opacity-0 group-hover:opacity-100 transition-opacity duration-[1.2s]">
+          <source src="/video1.mp4" type="video/mp4" />
+        </video>
+        <div className="absolute inset-0 flex flex-col justify-end p-8 bg-gradient-to-t from-black/70 via-transparent to-transparent z-30 opacity-0 group-hover:opacity-100 transition-opacity duration-700">
+          <p className="text-orange-400 text-[10px] font-black uppercase tracking-[0.4em] mb-2">Total Estate Revival</p>
+          <h4 className="text-2xl text-white font-light tracking-widest uppercase">The Sovereign Manor</h4>
+          <p className="text-white/70 text-xs mt-2 italic">From abandoned structure to luxury architectural masterpiece.</p>
+        </div>
+      </div>
+
+      {/* Project 2: Destroyed to Luxury Bathroom (Tall) */}
+      <div className="md:col-span-5 group relative h-[500px] md:h-[650px] overflow-hidden rounded-xl shadow-lg bg-white cursor-pointer">
+        <img 
+          src="/IMG_4884.JPG" 
+          className="absolute inset-0 w-full h-full object-cover z-10 opacity-100 group-hover:opacity-0 transition-all duration-[1.2s]" 
+          alt="Destroyed Bathroom Before" 
+        />
+        <video autoPlay muted loop playsInline className="absolute inset-0 w-full h-full object-cover z-0 group-hover:z-20 opacity-0 group-hover:opacity-100 transition-opacity duration-[1.2s]">
+          <source src="/e700e64526b34585986a56695a9a71e7.mov" type="video/quicktime" />
+          <source src="/e700e64526b34585986a56695a9a71e7.mov" type="video/mp4" />
+        </video>
+        <div className="absolute inset-0 flex flex-col justify-end p-8 bg-gradient-to-t from-black/70 via-transparent to-transparent z-30 opacity-0 group-hover:opacity-100 transition-opacity duration-700">
+          <p className="text-orange-400 text-[10px] font-black uppercase tracking-[0.4em] mb-2">Internal Alchemy</p>
+          <h4 className="text-2xl text-white font-light tracking-widest uppercase">The Quartz Sanctuary</h4>
+          <p className="text-white/70 text-xs mt-2 italic">Reclaiming destroyed spaces for ultimate relaxation.</p>
+        </div>
+      </div>
+
+      {/* Project 3: Smart Stairs (Using the Bathroom Video Fix) */}
+      <div className="md:col-span-6 group relative h-[400px] md:h-[500px] overflow-hidden rounded-xl shadow-lg bg-white cursor-pointer">
+        <img 
+          src="/IMG_1666.jpg" 
+          className="absolute inset-0 w-full h-full object-cover z-10 opacity-100 group-hover:opacity-0 transition-all duration-[1.2s]" 
+          alt="Stairs Before" 
+        />
+        <video autoPlay muted loop playsInline className="absolute inset-0 w-full h-full object-cover z-0 group-hover:z-20 opacity-0 group-hover:opacity-100 transition-opacity duration-[1.2s]">
+          <source src="/stair.mp4" type="video/quicktime" />
+          <source src="/stair.mp4" type="video/mp4" />
+        </video>
+        <div className="absolute inset-0 flex flex-col justify-end p-8 bg-gradient-to-t from-black/70 via-transparent to-transparent z-30 opacity-0 group-hover:opacity-100 transition-opacity duration-700">
+          <p className="text-orange-400 text-[10px] font-black uppercase tracking-[0.4em] mb-2">Smart Integration</p>
+          <h4 className="text-2xl text-white font-light tracking-widest uppercase">Motion-Sync Ascent</h4>
+          <p className="text-white/70 text-xs mt-2 italic">Sensor-activated illumination for a sophisticated home transition.</p>
+        </div>
+      </div>
+
+      {/* Project 4: Lounge & Media Wall */}
+      <div className="md:col-span-6 group relative h-[400px] md:h-[500px] overflow-hidden rounded-xl shadow-lg bg-white cursor-pointer">
+        <img 
+          src="/IMG_6165.jpg" 
+          className="absolute inset-0 w-full h-full object-cover z-10 opacity-100 group-hover:opacity-0 transition-all duration-[1.2s]" 
+          alt="Lounge Before" 
+        />
+        <video autoPlay muted loop playsInline className="absolute inset-0 w-full h-full object-cover z-0 group-hover:z-20 opacity-0 group-hover:opacity-100 transition-opacity duration-[1.2s]">
+          <source src="/lounge.mp4" type="video/mp4" />
+        </video>
+        <div className="absolute inset-0 flex flex-col justify-end p-8 bg-gradient-to-t from-black/70 via-transparent to-transparent z-30 opacity-0 group-hover:opacity-100 transition-opacity duration-700">
+          <p className="text-orange-400 text-[10px] font-black uppercase tracking-[0.4em] mb-2">Modern Living</p>
+          <h4 className="text-2xl text-white font-light tracking-widest uppercase">3D Media Enclave</h4>
+          <p className="text-white/70 text-xs mt-2 italic">Custom media walls and luxury bathroom suites.</p>
+        </div>
+      </div>
+
+    </div>
+
+    {/* CTA Button */}
+    <div className="mt-20 text-center">
+      <a 
+        href="#form" 
+        className="inline-block bg-orange-600 hover:bg-orange-700 text-white px-12 py-5 rounded-full font-bold uppercase tracking-[0.2em] text-xs transition-all shadow-xl hover:shadow-orange-200"
+      >
+        Partner With Us
+      </a>
+    </div>
+  </div>
+</section>
+
+
 
 <section className="py-24 bg-stone-50 overflow-hidden">
   <div className="max-w-7xl mx-auto px-6">
@@ -284,7 +397,7 @@ function App() {
         <div className="h-80 overflow-hidden">
           {/* Replace with actual Partner Photo */}
           <img 
-            src="/LionelMundyo.jpg" 
+            src="/CEO.png" 
             className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700"
             alt="Partner Profile"
           />
