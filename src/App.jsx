@@ -1,10 +1,19 @@
-import React, { useState } from 'react';
-import { Menu, X } from 'lucide-react'; // Make sure to run 'npm install lucide-react'
+import React, { useState, useEffect } from 'react';
+import { Menu, X } from 'lucide-react'; 
 import Success from './Success';
+import Links from './Links';
 
 function App() {
   const [isSubmitted, setIsSubmitted] = useState(false);
-  const [isMenuOpen, setIsMenuOpen] = useState(false); // New state for mobile menu
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [currentPath, setCurrentPath] = useState(window.location.pathname);
+
+  // Listen for URL changes so the page updates when you type a new URL
+  useEffect(() => {
+    const handleLocationChange = () => setCurrentPath(window.location.pathname);
+    window.addEventListener('popstate', handleLocationChange);
+    return () => window.removeEventListener('popstate', handleLocationChange);
+  }, []);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -28,9 +37,54 @@ function App() {
       .catch((error) => alert("Submission error: " + error));
   };
 
+  // --- ROUTING LOGIC ---
+  // If the URL is /Links, show the Links.jsx component
+  if (currentPath === '/Links' || currentPath === '/links') {
+    return <Links />;
+  }
+
+  // If the form was submitted, show the Success component
   if (isSubmitted) {
     return <Success />;
   }
+
+
+
+// import React, { useState } from 'react';
+// import { Menu, X } from 'lucide-react'; // Make sure to run 'npm install lucide-react'
+// import Success from './Success';
+
+
+
+// function App() {
+//   const [isSubmitted, setIsSubmitted] = useState(false);
+//   const [isMenuOpen, setIsMenuOpen] = useState(false); // New state for mobile menu
+
+//   const handleSubmit = (e) => {
+//     e.preventDefault();
+//     const myForm = e.target;
+//     const formData = new FormData(myForm);
+//     formData.append("form-name", "contact");
+    
+//     fetch("/", {
+//       method: "POST",
+//       headers: { "Content-Type": "application/x-www-form-urlencoded" },
+//       body: new URLSearchParams(formData).toString(),
+//     })
+//       .then((response) => {
+//         if (response.ok) {
+//           setIsSubmitted(true);
+//           window.scrollTo(0, 0);
+//         } else {
+//           throw new Error("network response was not ok");
+//         }
+//       })
+//       .catch((error) => alert("Submission error: " + error));
+//   };
+
+//   if (isSubmitted) {
+//     return <Success />;
+//   }
 
   return (
     <div className="min-h-screen bg-stone-50 text-stone-900 font-sans selection:bg-amber-200 scroll-smooth">
