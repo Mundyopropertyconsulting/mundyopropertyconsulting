@@ -527,7 +527,7 @@ function App() {
         Start Your Journey
       </h2>
       <div className="h-px w-20 bg-orange-400 mx-auto"></div>
-      <p className="mt-6 text-stone-500 font-serif italic">Private consultations by appointment only.</p>
+      <p className="mt-6 text-stone-500 font-serif italic">Investment & Project Inquiry.</p>
     </div>
 
     <div className="bg-white p-8 md:p-16 shadow-[0_20px_50px_rgba(0,0,0,0.05)] rounded-sm border border-stone-100">
