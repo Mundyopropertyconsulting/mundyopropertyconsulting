@@ -1,11 +1,10 @@
- 
+
+
 
 import React from 'react';
-// Added UserPlus to the imports
 import { Instagram, Globe, Video, MessageSquare, ArrowRight, Facebook, UserPlus } from 'lucide-react';
 
 const Links = () => {
-  // 1. Function to download your Contact Card
   const saveVCard = () => {
     const vcard = `BEGIN:VCARD
 VERSION:3.0
@@ -33,48 +32,53 @@ END:VCARD`;
       subtitle: "Join our next 7-12% return cycle",
       icon: <MessageSquare className="w-5 h-5" />,
       url: "/#form",
-      baseClass: "bg-transparent border-2 border-slate-900 text-slate-900",
-      hoverClass: "hover:bg-slate-900 hover:text-white"
+      // Always Dark Slate
+      baseClass: "bg-slate-900 border-slate-900 text-white shadow-md",
+      hoverClass: "hover:bg-slate-800"
     },
     {
       title: "Official Website",
       subtitle: "Explore our full portfolio",
       icon: <Globe className="w-5 h-5" />,
       url: "/",
+      // Always Stone Grey
       baseClass: "bg-stone-200 border-stone-300 text-slate-800",
-      hoverClass: "hover:bg-slate-800 hover:text-white"
+      hoverClass: "hover:bg-stone-300"
     },
     {
       title: "Instagram",
       subtitle: "Behind the scenes of our flips",
       icon: <Instagram className="w-5 h-5" />,
       url: "https://www.instagram.com/mundyomastercraft?igsh=cDdsdzdkbmxiaThn",
-      baseClass: "bg-white border-stone-200 text-slate-700",
-      hoverClass: "hover:bg-gradient-to-tr hover:from-[#f9ce34] hover:via-[#ee2a7b] hover:to-[#6228d7] hover:text-white"
+      // Always Gradient
+      baseClass: "bg-gradient-to-tr from-[#f9ce34] via-[#ee2a7b] to-[#6228d7] text-white border-transparent shadow-sm",
+      hoverClass: "hover:opacity-90"
     },
     {
       title: "TikTok",
       subtitle: "Renovation transformations",
       icon: <Video className="w-5 h-5" />,
       url: "https://www.tiktok.com/@mundyomastercraft?_r=1&_t=ZT-92pAGN7907J",
-      baseClass: "bg-white border-stone-200 text-slate-700",
-      hoverClass: "hover:bg-black hover:text-white"
+      // Always Black
+      baseClass: "bg-black text-white border-black",
+      hoverClass: "hover:bg-zinc-900"
     },
     {
       title: "Facebook",
       subtitle: "Community & Updates",
       icon: <Facebook className="w-5 h-5" />,
       url: "https://www.facebook.com/share/17nhwvdRYr/?mibextid=wwXIfr",
-      baseClass: "bg-white border-stone-200 text-slate-700",
-      hoverClass: "hover:bg-[#1877F2] hover:text-white"
+      // Always Facebook Blue
+      baseClass: "bg-[#1877F2] text-white border-[#1877F2]",
+      hoverClass: "hover:bg-[#166fe5]"
     }
   ];
 
   return (
-    <div className="min-h-screen bg-white flex flex-col items-center px-6 py-20">
+    <div className="min-h-screen bg-white flex flex-col items-center px-6 py-20 font-sans">
       {/* Profile Section */}
       <div className="text-center mb-10">
-        <div className="w-24 h-24 bg-slate-800 rounded-full mx-auto mb-6 flex items-center justify-center text-white text-2xl font-black">
+        <div className="w-24 h-24 bg-slate-800 rounded-full mx-auto mb-6 flex items-center justify-center text-white text-2xl font-black shadow-lg">
           M <span className="text-orange-500">.</span>
         </div>
         <h1 className="text-xl font-bold uppercase tracking-[0.3em] text-slate-800">Mundyo</h1>
@@ -106,19 +110,23 @@ END:VCARD`;
             `}
           >
             <div className="flex items-center gap-4">
-              <span className="text-orange-600 group-hover:text-white transition-colors duration-300">
+              {/* Icon - White for colored backgrounds, Orange for the Website button */}
+              <span className={`${item.title === "Official Website" ? "text-orange-600" : "text-white"} transition-colors duration-300`}>
                 {item.icon}
               </span>
+
               <div>
                 <h3 className="text-[11px] font-bold uppercase tracking-widest">
                   {item.title}
                 </h3>
-                <p className="text-[10px] opacity-70 group-hover:opacity-100 group-hover:text-white">
+                <p className={`text-[10px] ${item.title === "Official Website" ? "text-slate-500" : "text-white/80"}`}>
                   {item.subtitle}
                 </p>
               </div>
             </div>
-            <div className="opacity-40 group-hover:opacity-100 group-hover:translate-x-1 transition-all">
+
+            {/* Arrow - Stays white/light to be visible on colors */}
+            <div className="opacity-60 group-hover:opacity-100 group-hover:translate-x-1 transition-all">
               <ArrowRight size={16} />
             </div>
           </a>
