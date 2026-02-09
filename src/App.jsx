@@ -50,81 +50,70 @@ function App() {
 
 
 
-// import React, { useState } from 'react';
-// import { Menu, X } from 'lucide-react'; // Make sure to run 'npm install lucide-react'
-// import Success from './Success';
-
-
-
-// function App() {
-//   const [isSubmitted, setIsSubmitted] = useState(false);
-//   const [isMenuOpen, setIsMenuOpen] = useState(false); // New state for mobile menu
-
-//   const handleSubmit = (e) => {
-//     e.preventDefault();
-//     const myForm = e.target;
-//     const formData = new FormData(myForm);
-//     formData.append("form-name", "contact");
-    
-//     fetch("/", {
-//       method: "POST",
-//       headers: { "Content-Type": "application/x-www-form-urlencoded" },
-//       body: new URLSearchParams(formData).toString(),
-//     })
-//       .then((response) => {
-//         if (response.ok) {
-//           setIsSubmitted(true);
-//           window.scrollTo(0, 0);
-//         } else {
-//           throw new Error("network response was not ok");
-//         }
-//       })
-//       .catch((error) => alert("Submission error: " + error));
-//   };
-
-//   if (isSubmitted) {
-//     return <Success />;
-//   }
-
   return (
     <div className="min-h-screen bg-stone-50 text-stone-900 font-sans selection:bg-amber-200 scroll-smooth">
       {/* Navbar */}
-      <nav className="fixed top-0 w-full bg-white/90 backdrop-blur-md border-b border-stone-200 z-[100]">
-        <div className="max-w-7xl mx-auto px-6 py-5 flex justify-between items-center">
-          <h1 className="text-2xl font-black tracking-tighter text-slate-700">
-            Mundyo Property Consulting
-          </h1>
-
-          {/* Desktop Links (Hidden on mobile) */}
-          <div className="hidden md:flex space-x-10 text-xs font-bold uppercase tracking-widest text-stone-600 items-center">
-            <a href="#" className="hover:text-orange-600 transition">Home</a>
-            <a href="#info" className="hover:text-orange-600 transition">Our Vision</a>
-            <a href="#form" className="hover:text-orange-600 transition">Form</a>
-            <a href="#footer" className="hover:text-orange-600 transition">Contact</a>
-          </div>
-
-          {/* Mobile Toggle Button (Visible only on mobile) */}
-          <button 
-            className="md:hidden text-slate-700" 
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-          >
-            {isMenuOpen ? <X size={28} /> : <Menu size={28} />}
-          </button>
+    {/* Navbar */}
+<nav className="fixed top-0 w-full bg-white/95 backdrop-blur-md border-b border-stone-200 z-[100] transition-all">
+  <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+    
+    {/* LOGO & BRAND SECTION */}
+    <div className="flex items-center space-x-4">
+      <div className="relative">
+        {/* Logo Container - Matches "Mundyo" Slate-700 Color */}
+        <div className="w-10 h-10 md:w-12 md:h-12 bg-slate-700 flex items-center justify-center rounded-sm shadow-lg border border-stone-200">
+          <img 
+            src="/logo.png" 
+            alt="Mundyo Logo" 
+            className="w-full h-full object-contain p-2"
+            onError={(e) => { e.target.src = "https://via.placeholder.com/50/334155/ffffff?text=M"; }} 
+          />
         </div>
+      </div>
+      
+      {/* Split Color Branding */}
+      <h1 className="text-xl md:text-2xl font-black tracking-tighter leading-none">
+        <span className="text-slate-700 uppercase">Mundyo</span>
+        <br className="md:hidden" />
+        <span className="md:ml-2 text-orange-600 font-light italic font-serif lowercase md:normal-case md:font-black md:not-italic md:tracking-tighter">
+          Property Consulting
+        </span>
+      </h1>
+    </div>
 
-        {/* Mobile Slide-Down Menu */}
-        <div className={`
-          md:hidden absolute top-full left-0 w-full bg-white border-b border-stone-200 transition-all duration-300 ease-in-out overflow-hidden
-          ${isMenuOpen ? 'max-h-64 opacity-100' : 'max-h-0 opacity-0 pointer-events-none'}
-        `}>
-          <div className="flex flex-col p-6 space-y-4 text-xs font-bold uppercase tracking-widest text-stone-600">
-            <a href="#" onClick={() => setIsMenuOpen(false)} className="hover:text-orange-600">Home</a>
-            <a href="#info" onClick={() => setIsMenuOpen(false)} className="hover:text-orange-600">Our Vision</a>
-            <a href="#form" onClick={() => setIsMenuOpen(false)} className="hover:text-orange-600">Form</a>
-            <a href="#footer" onClick={() => setIsMenuOpen(false)} className="hover:text-orange-600">Contact</a>
-          </div>
-        </div>
-      </nav>
+    {/* Desktop Links */}
+    <div className="hidden md:flex space-x-10 text-[11px] font-bold uppercase tracking-[0.2em] text-stone-600 items-center">
+      <a href="#" className="hover:text-orange-600 transition-colors">Home</a>
+      <a href="#info" className="hover:text-orange-600 transition-colors">Our Vision</a>
+      <a href="#form" className="hover:text-orange-600 transition-colors">Form</a>
+      {/* Contact Button with orange border to match the new brand accent */}
+      <a href="#footer" className="hover:text-white hover:bg-orange-600 border border-orange-600/30 px-4 py-2 transition-all">
+        Contact
+      </a>
+    </div>
+
+    {/* Mobile Toggle Button */}
+    <button 
+      className="md:hidden text-slate-700 p-2" 
+      onClick={() => setIsMenuOpen(!isMenuOpen)}
+    >
+      {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+    </button>
+  </div>
+
+  {/* Mobile Slide-Down Menu */}
+  <div className={`
+    md:hidden absolute top-full left-0 w-full bg-white border-b border-stone-200 transition-all duration-300 ease-in-out overflow-hidden
+    ${isMenuOpen ? 'max-h-80 opacity-100' : 'max-h-0 opacity-0 pointer-events-none'}
+  `}>
+    <div className="flex flex-col p-8 space-y-6 text-xs font-bold uppercase tracking-[0.2em] text-stone-600">
+      <a href="#" onClick={() => setIsMenuOpen(false)} className="hover:text-orange-600">Home</a>
+      <a href="#info" onClick={() => setIsMenuOpen(false)} className="hover:text-orange-600">Our Vision</a>
+      <a href="#form" onClick={() => setIsMenuOpen(false)} className="hover:text-orange-600">Form</a>
+      <a href="#footer" onClick={() => setIsMenuOpen(false)} className="hover:text-orange-600">Contact</a>
+    </div>
+  </div>
+</nav>
 
       {/* Hero Section */}
       <header className="relative h-screen flex items-center justify-center pt-20">
