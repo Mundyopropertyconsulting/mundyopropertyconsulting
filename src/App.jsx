@@ -63,7 +63,7 @@ function App() {
         {/* Logo Container - Matches "Mundyo" Slate-700 Color */}
         <div className="w-10 h-10 md:w-12 md:h-12 bg-slate-700 flex items-center justify-center rounded-sm shadow-lg border border-stone-200">
           <img 
-            src="/logo.png" 
+            src="/logo.jpg" 
             alt="Mundyo Logo" 
             className="w-full h-full object-contain p-2"
             onError={(e) => { e.target.src = "https://via.placeholder.com/50/334155/ffffff?text=M"; }} 
