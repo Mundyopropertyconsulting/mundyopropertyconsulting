@@ -1,5 +1,6 @@
+
 import React, { useState, useEffect } from 'react';
-import { Menu, X } from 'lucide-react'; 
+import { Menu, X, FileCheck, LineChart, Cpu, HardHat } from 'lucide-react'; 
 import Success from './Success';
 import Links from './Links';
 
@@ -8,7 +9,6 @@ function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [currentPath, setCurrentPath] = useState(window.location.pathname);
 
-  // Listen for URL changes so the page updates when you type a new URL
   useEffect(() => {
     const handleLocationChange = () => setCurrentPath(window.location.pathname);
     window.addEventListener('popstate', handleLocationChange);
@@ -31,166 +31,183 @@ function App() {
           setIsSubmitted(true);
           window.scrollTo(0, 0);
         } else {
-          throw new Error("network response was not ok");
+          throw new Error("Network response was not ok");
         }
       })
       .catch((error) => alert("Submission error: " + error));
   };
 
-  // --- ROUTING LOGIC ---
-  // If the URL is /Links, show the Links.jsx component
-  if (currentPath === '/Links' || currentPath === '/links') {
-    return <Links />;
-  }
-
-  // If the form was submitted, show the Success component
-  if (isSubmitted) {
-    return <Success />;
-  }
-
-
+  if (currentPath === '/Links' || currentPath === '/links') return <Links />;
+  if (isSubmitted) return <Success />;
 
   return (
-    <div className="min-h-screen bg-stone-50 text-stone-900 font-sans selection:bg-amber-200 scroll-smooth">
+    <div className="min-h-screen bg-stone-50 text-stone-900 font-sans selection:bg-orange-100 scroll-smooth">
       {/* Navbar */}
-    {/* Navbar */}
-<nav className="fixed top-0 w-full bg-white/95 backdrop-blur-md border-b border-stone-200 z-[100] transition-all">
-  <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-    
-    {/* LOGO & BRAND SECTION */}
-    <div className="flex items-center space-x-4">
-      <div className="relative">
-        {/* Logo Container - Matches "Mundyo" Slate-700 Color */}
-        <div className="w-10 h-10 md:w-12 md:h-12 bg-slate-700 flex items-center justify-center rounded-sm shadow-lg border border-stone-200">
-          <img 
-            src="/logo.jpg" 
-            alt="Mundyo Logo" 
-            className="w-full h-full object-contain p-2"
-            onError={(e) => { e.target.src = "https://via.placeholder.com/50/334155/ffffff?text=M"; }} 
-          />
+      <nav className="fixed top-0 w-full bg-white/95 backdrop-blur-md border-b border-stone-200 z-[100] transition-all">
+        <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+          <div className="flex items-center space-x-4">
+            <div className="w-10 h-10 md:w-12 md:h-12 bg-slate-700 flex items-center justify-center rounded-sm">
+              <img src="/logo.jpg" alt="Logo" className="w-full h-full object-contain p-2" />
+            </div>
+            <h1 className="text-xl md:text-2xl font-black tracking-tighter leading-none">
+              <span className="text-slate-700 uppercase">Mundyo</span>
+              <span className="md:ml-2 text-orange-600 block md:inline font-light italic font-serif lowercase md:normal-case md:font-black md:not-italic">
+                Property Consulting
+              </span>
+            </h1>
+          </div>
+
+          <div className="hidden md:flex space-x-8 text-[11px] font-bold uppercase tracking-[0.2em] text-stone-600 items-center">
+            <a href="#" className="hover:text-orange-600 transition-colors">Home</a>
+            <a href="#info" className="hover:text-orange-600 transition-colors">Our Vision</a>
+            <a href="#portfolio" className="hover:text-orange-600 transition-colors">Portfolio</a>
+            <a href="#form" className="text-orange-600 border border-orange-600 px-4 py-2 hover:bg-orange-600 hover:text-white transition-all">
+              Inquiry Form
+            </a>
+            <a href="#footer" className="hover:text-orange-600 transition-colors">Contact</a>
+          </div>
+
+          <button className="md:hidden text-slate-700" onClick={() => setIsMenuOpen(!isMenuOpen)}>
+            {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+          </button>
         </div>
-      </div>
-      
-      {/* Split Color Branding */}
-      <h1 className="text-xl md:text-2xl font-black tracking-tighter leading-none">
-        <span className="text-slate-700 uppercase">Mundyo</span>
-        <br className="md:hidden" />
-        <span className="md:ml-2 text-orange-600 font-light italic font-serif lowercase md:normal-case md:font-black md:not-italic md:tracking-tighter">
-          Property Consulting
-        </span>
-      </h1>
-    </div>
-
-    {/* Desktop Links */}
-    <div className="hidden md:flex space-x-10 text-[11px] font-bold uppercase tracking-[0.2em] text-stone-600 items-center">
-      <a href="#" className="hover:text-orange-600 transition-colors">Home</a>
-      <a href="#info" className="hover:text-orange-600 transition-colors">Our Vision</a>
-      <a href="#form" className="hover:text-orange-600 transition-colors">Form</a>
-      {/* Contact Button with orange border to match the new brand accent */}
-      <a href="#footer" className="hover:text-white hover:bg-orange-600 border border-orange-600/30 px-4 py-2 transition-all">
-        Contact
-      </a>
-    </div>
-
-    {/* Mobile Toggle Button */}
-    <button 
-      className="md:hidden text-slate-700 p-2" 
-      onClick={() => setIsMenuOpen(!isMenuOpen)}
-    >
-      {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
-    </button>
-  </div>
-
-  {/* Mobile Slide-Down Menu */}
-  <div className={`
-    md:hidden absolute top-full left-0 w-full bg-white border-b border-stone-200 transition-all duration-300 ease-in-out overflow-hidden
-    ${isMenuOpen ? 'max-h-80 opacity-100' : 'max-h-0 opacity-0 pointer-events-none'}
-  `}>
-    <div className="flex flex-col p-8 space-y-6 text-xs font-bold uppercase tracking-[0.2em] text-stone-600">
-      <a href="#" onClick={() => setIsMenuOpen(false)} className="hover:text-orange-600">Home</a>
-      <a href="#info" onClick={() => setIsMenuOpen(false)} className="hover:text-orange-600">Our Vision</a>
-      <a href="#form" onClick={() => setIsMenuOpen(false)} className="hover:text-orange-600">Form</a>
-      <a href="#footer" onClick={() => setIsMenuOpen(false)} className="hover:text-orange-600">Contact</a>
-    </div>
-  </div>
-</nav>
+      </nav>
 
       {/* Hero Section */}
       <header className="relative h-screen flex items-center justify-center pt-20">
+  <div className="absolute inset-0">
+    <img 
+      src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&q=80&w=2000" 
+      className="w-full h-full object-cover brightness-[0.35]"
+      alt="Luxury Architecture"
+    />
+  </div>
+  <div className="relative text-center px-6 max-w-5xl">
+    <h2 className="text-5xl md:text-7xl font-black text-white mb-6 tracking-tighter uppercase leading-tight">
+      From Vision to <br/> <span className="text-orange-500 italic font-serif lowercase font-light">High-Tech Reality.</span>
+    </h2>
+    <p className="text-white/80 text-lg md:text-xl mb-10 font-light tracking-widest uppercase">
+      Ground-Up Development | Federal Contracting | Elite Consulting
+    </p>
+    
+    <div className="flex flex-col md:flex-row items-center justify-center gap-6">
+      {/* Primary Action */}
+      <a href="#form" className="w-full md:w-auto bg-orange-600 hover:bg-orange-700 text-white px-10 py-4 rounded-sm font-bold uppercase tracking-widest transition-all shadow-xl">
+        Partner with Mundyo
+      </a>
+
+      {/* Capabilities Download Button */}
+      <a 
+        href="/Capabilities document.pdf" 
+        download="Mundyo_Property_Consulting_Capabilities.pdf"
+        className="w-full md:w-auto flex items-center justify-center gap-3 border-2 border-white/50 text-white hover:bg-white hover:text-slate-900 px-10 py-4 rounded-sm font-bold uppercase tracking-widest transition-all backdrop-blur-sm group"
+      >
+        <svg 
+          xmlns="http://www.w3.org/2000/svg" 
+          fill="none" 
+          viewBox="0 0 24 24" 
+          strokeWidth={2} 
+          stroke="currentColor" 
+          className="w-5 h-5 text-orange-500 group-hover:text-slate-900 transition-colors"
+        >
+          <path strokeLinecap="round" strokeLinejoin="round" d="M3 16.5v2.25A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75V16.5M7.5 12 12 16.5m0 0L16.5 12M12 16.5V3" />
+        </svg>
+        Download Capabilities
+      </a>
+    </div>
+
+    {/* Small badge for Federal/State credibility */}
+    <p className="mt-8 text-white/40 text-[10px] uppercase tracking-[0.3em] font-medium">
+      Certified MBE | Illinois Procurement Gateway: IPG-0677361
+    </p>
+  </div>
+</header>
+
+      {/* <header className="relative h-screen flex items-center justify-center pt-20">
         <div className="absolute inset-0">
           <img 
             src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&q=80&w=2000" 
-            alt="Modern Luxury Home" 
-            className="w-full h-full object-cover brightness-50"
+            className="w-full h-full object-cover brightness-[0.35]"
+            alt="Luxury Architecture"
           />
         </div>
-        <div className="relative text-center px-6">
-          <h2 className="text-5xl md:text-8xl font-light text-white mb-6 tracking-tighter">
-            Automated <span className="italic font-serif">Luxury</span>
+        <div className="relative text-center px-6 max-w-5xl">
+          <h2 className="text-5xl md:text-7xl font-black text-white mb-6 tracking-tighter uppercase leading-tight">
+            From Vision to <br/> <span className="text-orange-500 italic font-serif lowercase font-light">High-Tech Reality.</span>
           </h2>
-          <p className="text-white/90 text-lg md:text-2xl max-w-2xl mx-auto font-light tracking-wide leading-relaxed mb-10">
-            Where high-tech living meets effortless investing. We build the future; you own the returns.
+          <p className="text-white/80 text-lg md:text-xl mb-10 font-light tracking-widest uppercase">
+            Ground-Up Development | Federal Contracting | Elite Consulting
           </p>
-          <a href="#form" className="bg-amber-700 hover:bg-amber-800 text-white px-10 py-4 rounded-sm font-bold uppercase tracking-widest transition-all shadow-2xl">
-            Inquire Now
-          </a>
+          
+          <div className="flex flex-col md:flex-row items-center justify-center gap-6">
+            <a href="#form" className="w-full md:w-auto bg-orange-600 hover:bg-orange-700 text-white px-10 py-4 rounded-sm font-bold uppercase tracking-widest transition-all shadow-xl">
+              Partner with Mundyo
+            </a>
+            <a 
+              href="/Capabilities_Statement.pdf" 
+              target="_blank"
+              className="w-full md:w-auto border-2 border-white/50 text-white hover:bg-white hover:text-slate-900 px-10 py-4 rounded-sm font-bold uppercase tracking-widest transition-all backdrop-blur-sm"
+            >
+              View Capabilities Statement
+            </a>
+          </div>
         </div>
-      </header>
-<div className="bg-slate-50 py-12 border-y border-stone-100">
-  <div className="max-w-7xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-    <div>
-      <p className="text-3xl font-black text-slate-700">Bespoke</p>
-      <p className="text-[10px] uppercase tracking-[0.2em] text-stone-500 font-bold">AI Design</p>
-    </div>
-    <div>
-      <p className="text-3xl font-black text-slate-700">7-12%</p>
-      <p className="text-[10px] uppercase tracking-[0.2em] text-stone-500 font-bold">Avg. Returns</p>
-    </div>
-    <div>
-      <p className="text-3xl font-black text-slate-700">24/7</p>
-      <p className="text-[10px] uppercase tracking-[0.2em] text-stone-500 font-bold">Smart Monitoring</p>
-    </div>
-    <div>
-      <p className="text-3xl font-black text-slate-700">Global</p>
-      <p className="text-[10px] uppercase tracking-[0.2em] text-stone-500 font-bold">Project Reach</p>
-    </div>
-  </div>
-</div>
-<div className="bg-white py-16 border-y border-stone-100">
-  <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-12 text-center">
-    
-    {/* Pillar 1 */}
-    <div className="space-y-3">
-      <div className="text-orange-600 text-xs font-bold uppercase tracking-[0.3em]">Phase I</div>
-      <h4 className="text-xl font-black text-slate-700 uppercase tracking-tighter">Consultation</h4>
-      <p className="text-stone-500 text-sm leading-relaxed max-w-xs mx-auto">
-        Deep analysis of the investment goals and property vision.
-      </p>
-    </div>
+      </header> */}
 
-    {/* Pillar 2 */}
-    <div className="space-y-3 border-y md:border-y-0 md:border-x border-stone-100 py-8 md:py-0">
-      <div className="text-orange-600 text-xs font-bold uppercase tracking-[0.3em]">Phase II</div>
-      <h4 className="text-xl font-black text-slate-700 uppercase tracking-tighter">Automation Design</h4>
-      <p className="text-stone-500 text-sm leading-relaxed max-w-xs mx-auto">
-        Integrating cutting-edge technology into high-end architecture.
-      </p>
-    </div>
+      {/* At a Glance Section */}
+      <div className="bg-white py-16 border-b border-stone-100">
+        <div className="max-w-7xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-12 text-center">
+          <div className="flex flex-col items-center">
+            <FileCheck className="text-orange-600 mb-4" size={32} />
+            <p className="text-2xl font-black text-slate-800">MBE</p>
+            <p className="text-[10px] uppercase tracking-widest text-stone-500 font-bold">Minority Business Enterprise</p>
+          </div>
+          <div className="flex flex-col items-center">
+            <LineChart className="text-orange-600 mb-4" size={32} />
+            <p className="text-2xl font-black text-slate-800">High-Yield</p>
+            <p className="text-[10px] uppercase tracking-widest text-stone-500 font-bold">Asset Appreciation</p>
+          </div>
+          <div className="flex flex-col items-center">
+            <Cpu className="text-orange-600 mb-4" size={32} />
+            <p className="text-2xl font-black text-slate-800">Smart</p>
+            <p className="text-[10px] uppercase tracking-widest text-stone-500 font-bold">Automation Integration</p>
+          </div>
+          <div className="flex flex-col items-center">
+            <HardHat className="text-orange-600 mb-4" size={32} />
+            <p className="text-2xl font-black text-slate-800">Ready</p>
+            <p className="text-[10px] uppercase tracking-widest text-stone-500 font-bold">Government Bid Eligible</p>
+          </div>
+        </div>
+      </div>
 
-    {/* Pillar 3 */}
-    <div className="space-y-3">
-      <div className="text-orange-600 text-xs font-bold uppercase tracking-[0.3em]">Phase III</div>
-      <h4 className="text-xl font-black text-slate-700 uppercase tracking-tighter">Project Oversight</h4>
-      <p className="text-stone-500 text-sm leading-relaxed max-w-xs mx-auto">
-        Ensuring every detail meets the Mundyo luxury standard.
-      </p>
-    </div>
-
-  </div>
-</div>
-
+      {/* Mundyo Lifecycle */}
+      <section className="bg-stone-50 py-24">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="text-center mb-16">
+            <h3 className="text-orange-600 text-xs font-bold uppercase tracking-[0.4em] mb-2">The Process</h3>
+            <h2 className="text-4xl font-black text-slate-800 uppercase tracking-tighter">The Mundyo Lifecycle</h2>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-16">
+            <div className="relative p-8 bg-white shadow-sm border-t-4 border-orange-600">
+              <span className="absolute -top-4 -right-4 text-6xl font-black text-stone-100 select-none">01</span>
+              <h4 className="text-xl font-bold text-slate-800 mb-4">STRATEGIC CONSULTING</h4>
+              <p className="text-stone-500 text-sm leading-relaxed">Feasibility studies and bid strategies for ground-up developments and federal solicitations.</p>
+            </div>
+            <div className="relative p-8 bg-white shadow-sm border-t-4 border-slate-700">
+              <span className="absolute -top-4 -right-4 text-6xl font-black text-stone-100 select-none">02</span>
+              <h4 className="text-xl font-bold text-slate-800 mb-4">TECH ENGINEERING</h4>
+              <p className="text-stone-500 text-sm leading-relaxed">Integrating smart automation and high-efficiency HVAC systems into the architectural blueprint.</p>
+            </div>
+            <div className="relative p-8 bg-white shadow-sm border-t-4 border-orange-600">
+              <span className="absolute -top-4 -right-4 text-6xl font-black text-stone-100 select-none">03</span>
+              <h4 className="text-xl font-bold text-slate-800 mb-4">PRECISION BUILD</h4>
+              <p className="text-stone-500 text-sm leading-relaxed">Execution of ground-up construction and complex renovations to federal and luxury standards.</p>
+            </div>
+          </div>
+        </div>
+      </section>
 {/*video */}
-<section className="w-full bg-slate-700 overflow-hidden">
+<section id="portflio" className="w-full bg-slate-700 overflow-hidden">
   <div className="relative w-full h-[70vh] md:h-[80vh]">
     {/* The Video Background */}
     <video 
@@ -235,42 +252,113 @@ function App() {
   <div className="max-w-4xl mx-auto px-6 text-center">
     <h3 className="text-orange-600 text-xs font-bold uppercase tracking-[0.5em] mb-16">The Mundyo Advantage</h3>
     
-    {/* Paragraph 1: The Model Speech / Core Mission */}
-    <div className="mb-20">
-      <h4 className="text-slate-900 text-sm font-bold uppercase tracking-[0.3em] mb-4">Our Mission</h4>
-      <p className="text-slate-800 text-2xl md:text-3xl leading-snug max-w-3xl mx-auto font-serif italic">
-        "We help regular people make passive income through real estate. Join us as we turn  
-         <span className="text-orange-600"> ugly houses </span> 
-          and underutilized land into beautiful masterpieces, that are valued at 
-         <span className="text-orange-600"> luxury prices</span> and generate 
-         <span className="text-orange-600"> cash flow </span>."
+   
+<div className="mb-32">
+  <h4 className="text-slate-900 text-sm font-bold uppercase tracking-[0.3em] mb-12">Our Mission</h4>
+  
+  <div className="max-w-4xl mx-auto px-4">
+    {/* The Visionary Quote */}
+    <div className="relative mb-16">
+      {/* Large Decorative Quote Mark */}
+      <span className="absolute -top-10 -left-4 text-8xl text-orange-600/10 font-serif select-none">“</span>
+      
+      <p className="text-slate-800 text-2xl md:text-4xl leading-tight font-serif italic relative z-10">
+        At Mundyo Property Consulting LLC, we redefine the built environment through <span className="text-orange-600 not-italic font-sans font-black uppercase text-xl md:text-2xl tracking-tighter">technical precision</span> and strategic oversight.
       </p>
-      <div className="mt-12 h-px w-24 bg-orange-600/20 mx-auto"></div>
     </div>
 
-    {/* Paragraph 2: Range & Flexibility */}
-    <div className="mb-20">
-      <h4 className="text-slate-900 text-sm font-bold uppercase tracking-[0.3em] mb-4">Market Versatility</h4>
-      <p className="text-stone-500 text-lg leading-relaxed max-w-2xl mx-auto">
-        Our portfolio is borderless and diverse. From high-end residential flips and iconic A-Frame silhouettes to large-scale commercial developments, we operate across the entire United States. We transform standard structures into high-yield luxury assets, regardless of the project's initial scale.
-      </p>
-      <div className="mt-12 h-px w-24 bg-orange-600/20 mx-auto"></div>
+    {/* The Strategic Breakdown */}
+    <div className="grid md:grid-cols-2 gap-12 text-left border-t border-stone-100 pt-12">
+      <div>
+        <p className="text-stone-500 text-lg leading-relaxed font-light">
+          As a <strong className="text-slate-800 font-bold">certified Minority Business Enterprise</strong>, we bridge the gap between elite development and federal contracting—ensuring every project, from high-tech resorts to public infrastructure, is built for the future.
+        </p>
+      </div>
+      <div>
+        <p className="text-stone-500 text-lg leading-relaxed font-light">
+          We provide private capital partners with high-yield opportunities in ground-up construction and luxury renovations, delivering <strong className="text-slate-800 font-bold">exceptional returns</strong> through forced asset appreciation.
+        </p>
+      </div>
     </div>
+  </div>
+
+  <div className="mt-20 h-px w-24 bg-orange-600/20 mx-auto"></div>
+</div>
+
+    {/* Paragraph 2: Range & Flexibility */}
+
+{/* Paragraph 2: Range & Flexibility */}
+<div className="mb-32">
+  <h4 className="text-slate-900 text-sm font-bold uppercase tracking-[0.3em] mb-12 text-center">Market Versatility</h4>
+  
+  <div className="max-w-4xl mx-auto px-4">
+    {/* Intro Sentence - Full Width */}
+    <div className="mb-16 text-center">
+      <p className="text-slate-800 text-xl md:text-2xl font-medium leading-relaxed max-w-3xl mx-auto">
+        Our portfolio is defined by technical precision and high-yield performance. We don't just manage properties—we <span className="text-orange-600 italic font-serif">engineer</span> them for maximum appreciation.
+      </p>
+    </div>
+
+    {/* The Side-by-Side Grid (Points 1 & 2) */}
+    <div className="grid md:grid-cols-2 gap-12 mb-16">
+      <div className="p-8 bg-white border border-stone-100 shadow-sm rounded-sm">
+        <span className="block text-orange-600 font-black uppercase tracking-widest text-[10px] mb-4">
+          01 / Construction & Renovations
+        </span>
+        <h5 className="text-slate-900 font-bold mb-4 uppercase tracking-tight">Forced Appreciation</h5>
+        <p className="text-stone-500 text-base leading-relaxed font-light">
+          We specialize in high-return residential and commercial developments. Whether constructing iconic A-Frame wellness resorts or transforming neglected structures into automated masterpieces, we integrate master-level HVAC and AI-driven systems to outperform the market.
+        </p>
+      </div>
+
+      <div className="p-8 bg-white border border-stone-100 shadow-sm rounded-sm">
+        <span className="block text-orange-600 font-black uppercase tracking-widest text-[10px] mb-4">
+          02 / Public Sector & Federal
+        </span>
+        <h5 className="text-slate-900 font-bold mb-4 uppercase tracking-tight">The Mundyo Standard</h5>
+        <p className="text-stone-500 text-base leading-relaxed font-light">
+          As a certified Minority Business Enterprise (MBE), we provide strategic consulting and general contracting for mission-critical infrastructure. Our technical mastery in mechanical systems makes us a preferred partner for state and federal agencies.
+        </p>
+      </div>
+    </div>
+
+    {/* The Third Point (Below - Centered/Anchored) */}
+    <div className="max-w-2xl mx-auto p-8 bg-slate-900 text-white rounded-sm shadow-xl relative overflow-hidden">
+      {/* Decorative Accent */}
+      <div className="absolute top-0 right-0 w-24 h-24 bg-orange-600/10 rounded-full -mr-12 -mt-12"></div>
+      
+      <span className="block text-orange-500 font-black uppercase tracking-widest text-[10px] mb-4">
+        03 / Asset Management
+      </span>
+      <h5 className="text-xl font-bold mb-4 uppercase tracking-tight">Strategic Longevity</h5>
+      <p className="text-white/70 text-base leading-relaxed font-light">
+        Post-construction, we ensure the profitability of every project. We consult on long-term hold strategies and provide ongoing technical maintenance, ensuring that every asset—from private luxury resorts to government facilities—operates at peak efficiency.
+      </p>
+    </div>
+  </div>
+
+  <div className="mt-20 h-px w-24 bg-orange-600/20 mx-auto"></div>
+</div>
+
 
     {/* Paragraph 3: Wealth Generation */}
     <div className="mb-20">
-      <h4 className="text-slate-900 text-sm font-bold uppercase tracking-[0.3em] mb-4">Capital Management</h4>
+      <h4 className="text-slate-900 text-sm font-bold uppercase tracking-[0.3em] mb-4">Capital Management & Partnerships</h4>
       <p className="text-stone-500 text-lg leading-relaxed max-w-2xl mx-auto font-medium">
-        We bridge the gap between private capital and elite real estate. Whether you are seeking to grow a modest fund or deploy significant capital into estate-level mansions, Mundyo provides a passive vehicle for exceptional returns. We invite strategic partners to benefit from our expertise without the burden of management.
+        We bridge the gap between private capital and elite real estate. Mundyo provides a sophisticated, passive vehicle for
+         partners to invest in ground-up luxury projects—such as our flagship wellness resorts—designed for exceptional returns 
+         and long-term stability. We manage the complexity; you own the legacy.
       </p>
       <div className="mt-12 h-px w-24 bg-orange-600/20 mx-auto"></div>
     </div>
 
     {/* Paragraph 4: Integrity & Transparency */}
     <div className="mb-20">
-      <h4 className="text-slate-900 text-sm font-bold uppercase tracking-[0.3em] mb-4">Partner Relations</h4>
+      <h4 className="text-slate-900 text-sm font-bold uppercase tracking-[0.3em] mb-4">Integrity & Transparency</h4>
       <p className="text-stone-500 text-lg leading-relaxed max-w-2xl mx-auto">
-        Integrity is our primary currency. Our partners are fully integrated into the lifecycle of the project through detailed monthly updates and full financial transparency. From the first architectural sketch to the final delivery, we take immense pride in protecting both your capital and our name.
+        Integrity Integrity is our primary currency. Our partners and government clients are fully integrated into the project
+         lifecycle through detailed updates and full financial transparency. From the initial architectural sketch to the final 
+         delivery, we take pride in protecting both your capital and our reputation.
       </p>
       <div className="mt-12 h-px w-24 bg-orange-600/20 mx-auto"></div>
     </div>
@@ -279,7 +367,9 @@ function App() {
     <div className="mb-20">
       <h4 className="text-slate-900 text-sm font-bold uppercase tracking-[0.3em] mb-4">Legacy Building</h4>
       <p className="text-stone-500 text-lg leading-relaxed max-w-2xl mx-auto">
-        Beyond development, we secure your legacy through long-term rental hold strategies. By investing in Mundyo-managed projects, our partners enjoy lifetime cashflow and passive dividends. You monitor the growth; we master the operations.
+        Beyond Beyond Development. We don’t just build structures; we secure futures. By combining long-term rental hold strategies
+         with high-value government contracts, Mundyo Property Consulting ensures a stable, cash-flowing legacy. You monitor the growth;
+          we master the operations.
       </p>
       <div className="mt-20 h-[2px] w-48 bg-orange-600 mx-auto"></div>
     </div>
@@ -288,11 +378,8 @@ function App() {
 </section>
 
 
-
 {/* Breathtaking Transformation Gallery */}
-
-{/* Breathtaking Transformation Gallery */}
-<section className="py-24 bg-stone-50 text-stone-900">
+<section id="portfolio" className="py-24 bg-stone-50 text-stone-900">
   <div className="max-w-7xl mx-auto px-6">
     <div className="mb-20">
       <h3 className="text-orange-600 text-xs font-bold uppercase tracking-[0.5em] mb-4">The Portfolio</h3>
@@ -306,90 +393,89 @@ function App() {
 
     <div className="grid grid-cols-1 md:grid-cols-12 gap-6">
       
-      {/* Project 1: Abandoned to Masterpiece */}
-      <div className="md:col-span-7 group relative h-[500px] md:h-[650px] overflow-hidden rounded-xl shadow-lg bg-white cursor-pointer">
-        {/* PHONE VIEW: Project 1 Mobile Image */}
-        <img 
-          src="/IMG_6601.jpg" 
-          className="md:hidden w-full h-full object-cover" 
-          alt="Luxury Manor Transformation" 
-        />
-        
-        {/* DESKTOP VIEW: Video Transformation */}
+      {/* Project 1: Total Estate Revival */}
+      <a 
+        href="https://www.instagram.com/p/DSIdViJEbLu/" 
+        target="_blank" 
+        rel="noopener noreferrer"
+        className="md:col-span-7 group relative h-[500px] md:h-[650px] overflow-hidden rounded-xl shadow-lg bg-white cursor-pointer block"
+      >
+        <img src="/IMG_6601.jpg" className="md:hidden w-full h-full object-cover" alt="Luxury Manor Transformation" />
         <div className="hidden md:block absolute inset-0">
           <img src="/9BFD83C8-1D55-42CB-AD22-102C63027179.jpg" className="absolute inset-0 w-full h-full object-cover z-10 opacity-100 group-hover:opacity-0 transition-all duration-[1.2s]" alt="Before" />
           <video autoPlay muted loop playsInline className="absolute inset-0 w-full h-full object-cover z-0 group-hover:z-20 opacity-0 group-hover:opacity-100 transition-opacity duration-[1.2s]">
             <source src="/video1.mp4" type="video/mp4" />
           </video>
         </div>
-        <div className="absolute inset-0 flex flex-col justify-end p-8 bg-gradient-to-t from-black/80 via-transparent to-transparent z-30 opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-700">
+        <div className="absolute inset-0 flex flex-col justify-end p-8 bg-gradient-to-t from-black/90 via-black/20 to-transparent z-30 opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-700">
           <p className="text-orange-400 text-[10px] font-black uppercase tracking-[0.4em] mb-2">Total Estate Revival</p>
-          <h4 className="text-2xl text-white font-light tracking-widest uppercase">The Sovereign Manor</h4>
+          <h4 className="text-2xl text-white font-light tracking-widest uppercase mb-4">The Sovereign Manor</h4>
+          <span className="text-white/60 text-[9px] uppercase tracking-widest font-bold">View on Instagram →</span>
         </div>
-      </div>
+      </a>
 
-      {/* Project 2: Luxury Bathroom (tall) */}
-      <div className="md:col-span-5 group relative h-[500px] md:h-[650px] overflow-hidden rounded-xl shadow-lg bg-white cursor-pointer">
-        {/* PHONE VIEW: Project 2 Mobile Image */}
-        <img 
-          src="/tv.jpg" 
-          className="md:hidden w-full h-full object-cover" 
-          alt="Luxury Suite Transformation" 
-        />
-        {/* DESKTOP VIEW */}
+      {/* Project 2: Internal Alchemy */}
+      <a 
+        href="https://www.instagram.com/p/DSFzWD5kf_r/" 
+        target="_blank" 
+        rel="noopener noreferrer"
+        className="md:col-span-5 group relative h-[500px] md:h-[650px] overflow-hidden rounded-xl shadow-lg bg-white cursor-pointer block"
+      >
+        <img src="/tv.jpg" className="md:hidden w-full h-full object-cover" alt="Luxury Suite Transformation" />
         <div className="hidden md:block absolute inset-0">
           <img src="/IMG_4884.JPG" className="absolute inset-0 w-full h-full object-cover z-10 opacity-100 group-hover:opacity-0 transition-all duration-[1.2s]" alt="Before" />
           <video autoPlay muted loop playsInline className="absolute inset-0 w-full h-full object-cover z-0 group-hover:z-20 opacity-0 group-hover:opacity-100 transition-opacity duration-[1.2s]">
             <source src="/e700e64526b34585986a56695a9a71e7.mov" />
           </video>
         </div>
-        <div className="absolute inset-0 flex flex-col justify-end p-8 bg-gradient-to-t from-black/80 via-transparent to-transparent z-30 opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-700">
+        <div className="absolute inset-0 flex flex-col justify-end p-8 bg-gradient-to-t from-black/90 via-black/20 to-transparent z-30 opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-700">
           <p className="text-orange-400 text-[10px] font-black uppercase tracking-[0.4em] mb-2">Internal Alchemy</p>
-          <h4 className="text-2xl text-white font-light tracking-widest uppercase">The Quartz Sanctuary</h4>
+          <h4 className="text-2xl text-white font-light tracking-widest uppercase mb-4">The Quartz Sanctuary</h4>
+          <span className="text-white/60 text-[9px] uppercase tracking-widest font-bold">View on Instagram →</span>
         </div>
-      </div>
+      </a>
 
-      {/* Project 3: Smart Stairs */}
-      <div className="md:col-span-6 group relative h-[400px] md:h-[500px] overflow-hidden rounded-xl shadow-lg bg-white cursor-pointer">
-        {/* PHONE VIEW: Project 3 Mobile Image */}
-        <img 
-          src="/topview.jpg" 
-          className="md:hidden w-full h-full object-cover" 
-          alt="Smart Stairs Transformation" 
-        />
-        {/* DESKTOP VIEW */}
+      {/* Project 3: Smart Integration */}
+      <a 
+        href="https://www.instagram.com/p/DSYkqPiEfK0/" 
+        target="_blank" 
+        rel="noopener noreferrer"
+        className="md:col-span-6 group relative h-[400px] md:h-[500px] overflow-hidden rounded-xl shadow-lg bg-white cursor-pointer block"
+      >
+        <img src="/topview.jpg" className="md:hidden w-full h-full object-cover" alt="Smart Stairs Transformation" />
         <div className="hidden md:block absolute inset-0">
           <img src="/IMG_1666.jpg" className="absolute inset-0 w-full h-full object-cover z-10 opacity-100 group-hover:opacity-0 transition-all duration-[1.2s]" alt="Before" />
           <video autoPlay muted loop playsInline className="absolute inset-0 w-full h-full object-cover z-0 group-hover:z-20 opacity-0 group-hover:opacity-100 transition-opacity duration-[1.2s]">
             <source src="/stair.mp4" type="video/mp4" />
           </video>
         </div>
-        <div className="absolute inset-0 flex flex-col justify-end p-8 bg-gradient-to-t from-black/80 via-transparent to-transparent z-30 opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-700">
+        <div className="absolute inset-0 flex flex-col justify-end p-8 bg-gradient-to-t from-black/90 via-black/20 to-transparent z-30 opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-700">
           <p className="text-orange-400 text-[10px] font-black uppercase tracking-[0.4em] mb-2">Smart Integration</p>
-          <h4 className="text-2xl text-white font-light tracking-widest uppercase">Motion-Sync Ascent</h4>
+          <h4 className="text-2xl text-white font-light tracking-widest uppercase mb-4">Motion-Sync Ascent</h4>
+          <span className="text-white/60 text-[9px] uppercase tracking-widest font-bold">View on Instagram →</span>
         </div>
-      </div>
+      </a>
 
-      {/* Project 4: Lounge & Media Wall */}
-      <div className="md:col-span-6 group relative h-[400px] md:h-[500px] overflow-hidden rounded-xl shadow-lg bg-white cursor-pointer">
-        {/* PHONE VIEW: Project 4 Mobile Image */}
-        <img 
-          src="/IMG_6165.jpg" 
-          className="md:hidden w-full h-full object-cover" 
-          alt="Media Wall & Bath Suite" 
-        />
-        {/* DESKTOP VIEW */}
+      {/* Project 4: Modern Living */}
+      <a 
+        href="https://www.instagram.com/p/DSywC1LjM1o/" 
+        target="_blank" 
+        rel="noopener noreferrer"
+        className="md:col-span-6 group relative h-[400px] md:h-[500px] overflow-hidden rounded-xl shadow-lg bg-white cursor-pointer block"
+      >
+        <img src="/IMG_6165.jpg" className="md:hidden w-full h-full object-cover" alt="Media Wall & Bath Suite" />
         <div className="hidden md:block absolute inset-0">
           <img src="/IMG_6165.jpg" className="absolute inset-0 w-full h-full object-cover z-10 opacity-100 group-hover:opacity-0 transition-all duration-[1.2s]" alt="Before" />
           <video autoPlay muted loop playsInline className="absolute inset-0 w-full h-full object-cover z-0 group-hover:z-20 opacity-0 group-hover:opacity-100 transition-opacity duration-[1.2s]">
             <source src="/lounge.mp4" type="video/mp4" />
           </video>
         </div>
-        <div className="absolute inset-0 flex flex-col justify-end p-8 bg-gradient-to-t from-black/80 via-transparent to-transparent z-30 opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-700">
+        <div className="absolute inset-0 flex flex-col justify-end p-8 bg-gradient-to-t from-black/90 via-black/20 to-transparent z-30 opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-700">
           <p className="text-orange-400 text-[10px] font-black uppercase tracking-[0.4em] mb-2">Modern Living</p>
-          <h4 className="text-2xl text-white font-light tracking-widest uppercase">3D Media Enclave</h4>
+          <h4 className="text-2xl text-white font-light tracking-widest uppercase mb-4">3D Media Enclave</h4>
+          <span className="text-white/60 text-[9px] uppercase tracking-widest font-bold">View on Instagram →</span>
         </div>
-      </div>
+      </a>
 
     </div>
   </div>
