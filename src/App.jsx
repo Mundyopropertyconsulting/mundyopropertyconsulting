@@ -73,6 +73,24 @@ function App() {
         </div>
       </nav>
 
+              {/* Mobile Menu Overlay */}
+<div className={`fixed inset-0 z-[90] md:hidden transition-all duration-500 ${isMenuOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'}`}>
+  {/* Backdrop */}
+  <div className="absolute inset-0 bg-slate-900/90 backdrop-blur-xl" onClick={() => setIsMenuOpen(false)}></div>
+  
+  {/* Menu Content */}
+  <div className={`absolute right-0 top-0 h-full w-64 bg-white shadow-2xl transition-transform duration-500 p-8 pt-24 ${isMenuOpen ? 'translate-x-0' : 'translate-x-full'}`}>
+    <div className="flex flex-col space-y-8 text-sm font-bold uppercase tracking-widest text-slate-600">
+      <a href="#" onClick={() => setIsMenuOpen(false)} className="hover:text-orange-600 transition-colors">Home</a>
+      <a href="#info" onClick={() => setIsMenuOpen(false)} className="hover:text-orange-600 transition-colors">Our Vision</a>
+      <a href="#portfolio" onClick={() => setIsMenuOpen(false)} className="hover:text-orange-600 transition-colors">Portfolio</a>
+      <a href="#form" onClick={() => setIsMenuOpen(false)} className="text-orange-600 pt-4 border-t border-stone-100">Inquiry Form</a>
+      <a href="#footer" onClick={() => setIsMenuOpen(false)} className="hover:text-orange-600 transition-colors">Contact</a>
+    </div>
+  </div>
+</div>
+
+
       {/* Hero Section */}
       <header className="relative h-screen flex items-center justify-center pt-20">
   <div className="absolute inset-0">
@@ -645,7 +663,7 @@ function App() {
             </label>
             <input 
               type="text" 
-              name="firstname" 
+              name="first-name" 
               placeholder="Mundyo" 
               required 
               className="w-full pb-3 border-b border-stone-200 outline-none focus:border-orange-600 transition-all duration-300 bg-transparent placeholder:text-stone-300 text-slate-700" 
@@ -658,7 +676,7 @@ function App() {
             </label>
             <input 
               type="text" 
-              name="lastname" 
+              name="last-name" 
               placeholder="consulting" 
               required 
               className="w-full pb-3 border-b border-stone-200 outline-none focus:border-orange-600 transition-all duration-300 bg-transparent placeholder:text-stone-300 text-slate-700" 
