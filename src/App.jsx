@@ -123,37 +123,6 @@ function App() {
   </div>
 </header>
 
-      {/* <header className="relative h-screen flex items-center justify-center pt-20">
-        <div className="absolute inset-0">
-          <img 
-            src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&q=80&w=2000" 
-            className="w-full h-full object-cover brightness-[0.35]"
-            alt="Luxury Architecture"
-          />
-        </div>
-        <div className="relative text-center px-6 max-w-5xl">
-          <h2 className="text-5xl md:text-7xl font-black text-white mb-6 tracking-tighter uppercase leading-tight">
-            From Vision to <br/> <span className="text-orange-500 italic font-serif lowercase font-light">High-Tech Reality.</span>
-          </h2>
-          <p className="text-white/80 text-lg md:text-xl mb-10 font-light tracking-widest uppercase">
-            Ground-Up Development | Federal Contracting | Elite Consulting
-          </p>
-          
-          <div className="flex flex-col md:flex-row items-center justify-center gap-6">
-            <a href="#form" className="w-full md:w-auto bg-orange-600 hover:bg-orange-700 text-white px-10 py-4 rounded-sm font-bold uppercase tracking-widest transition-all shadow-xl">
-              Partner with Mundyo
-            </a>
-            <a 
-              href="/Capabilities_Statement.pdf" 
-              target="_blank"
-              className="w-full md:w-auto border-2 border-white/50 text-white hover:bg-white hover:text-slate-900 px-10 py-4 rounded-sm font-bold uppercase tracking-widest transition-all backdrop-blur-sm"
-            >
-              View Capabilities Statement
-            </a>
-          </div>
-        </div>
-      </header> */}
-
       {/* At a Glance Section */}
       <div className="bg-white py-16 border-b border-stone-100">
         <div className="max-w-7xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-12 text-center">
@@ -555,9 +524,8 @@ function App() {
         <div className="absolute bottom-4 left-4 right-4 bg-white/80 backdrop-blur-md p-6 rounded-xl border border-white/20 shadow-lg">
           <h4 className="text-slate-900 font-bold uppercase tracking-widest text-sm mb-1">Lionel Mundyo Kasongi</h4>
           <p className="text-orange-600 text-[10px] font-bold uppercase tracking-widest mb-3">CEO & Founder</p>
-          <p className="text-slate-600 text-xs leading-relaxed font-light">
-         Founder of Mundyo Property Consulting, 
-         I lead an expert team specializing in ultra-luxury smart home construction.      
+          <p className="text-slate-600 text-xs leading-relaxed font-light"> 
+        Expert systems architect and master builder delivering high-tech luxury estates      
           </p>
         </div>
 
