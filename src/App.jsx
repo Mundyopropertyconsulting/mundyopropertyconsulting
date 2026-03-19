@@ -343,7 +343,7 @@ function App() {
     <div className="mb-20">
       <h4 className="text-slate-900 text-sm font-bold uppercase tracking-[0.3em] mb-4">Integrity & Transparency</h4>
       <p className="text-stone-500 text-lg leading-relaxed max-w-2xl mx-auto">
-        Integrity Integrity is our primary currency. Our partners and government clients are fully integrated into the project
+        Integrity is our primary currency. Our partners and government clients are fully integrated into the project
          lifecycle through detailed updates and full financial transparency. From the initial architectural sketch to the final 
          delivery, we take pride in protecting both your capital and our reputation.
       </p>
@@ -354,7 +354,7 @@ function App() {
     <div className="mb-20">
       <h4 className="text-slate-900 text-sm font-bold uppercase tracking-[0.3em] mb-4">Legacy Building</h4>
       <p className="text-stone-500 text-lg leading-relaxed max-w-2xl mx-auto">
-        Beyond Beyond Development. We don’t just build structures; we secure futures. By combining long-term rental hold strategies
+        Beyond Development. We don’t just build structures; we secure futures. By combining long-term rental hold strategies
          with high-value government contracts, Mundyo Property Consulting ensures a stable, cash-flowing legacy. You monitor the growth;
           we master the operations.
       </p>
@@ -601,7 +601,7 @@ function App() {
           <h4 className="text-slate-900 font-bold uppercase tracking-widest text-sm mb-1">Kevine Kakou</h4>
           <p className="text-orange-600 text-[10px] font-bold uppercase tracking-widest mb-3">Real Eastate Agent</p>
           <p className="text-slate-600 text-xs leading-relaxed font-light">
-            I am a Real Eastate and Property Management professional with a strong foundation in business operation
+            I am a Real Estate and Property Management professional with a strong foundation in business operation
           </p>
         </div>
       </div>
