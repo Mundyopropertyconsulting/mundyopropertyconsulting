@@ -633,9 +633,8 @@ function App() {
   </div>
 </section>
 
- <section id="form" className="py-24 bg-stone-50">
+<section id="form" className="py-24 bg-stone-50">
   <div className="max-w-4xl mx-auto px-6">
-    {/* Header Section */}
     <div className="text-center mb-16">
       <h2 className="text-3xl md:text-4xl font-light mb-4 uppercase tracking-[0.2em] text-slate-800">
         Start Your Journey
@@ -653,96 +652,42 @@ function App() {
         onSubmit={handleSubmit}
         className="space-y-10"
       >
-        {/* Hidden inputs for Netlify functionality */}
+        {/* CRITICAL FOR NETLIFY */}
         <input type="hidden" name="form-name" value="contact" />
-        <p className="hidden">
-          <label>Don't fill this out if you're human: <input name="bot-field" /></label>
-        </p>
+        <input type="hidden" name="bot-field" />
 
-        {/* Name Row */}
         <div className="grid md:grid-cols-2 gap-x-12 gap-y-10">
           <div className="relative group">
-            <label className="text-[10px] uppercase tracking-widest font-semibold text-stone-400 mb-2 block transition-colors group-focus-within:text-orange-600">
-              First Name
-            </label>
-            <input 
-              type="text" 
-              name="first-name" 
-              placeholder="Mundyo" 
-              required 
-              className="w-full pb-3 border-b border-stone-200 outline-none focus:border-orange-600 transition-all duration-300 bg-transparent placeholder:text-stone-300 text-slate-700" 
-            />
+            <label className="text-[10px] uppercase tracking-widest font-semibold text-stone-400 mb-2 block">First Name</label>
+            <input type="text" name="firstName" required className="w-full pb-3 border-b border-stone-200 outline-none focus:border-orange-600 bg-transparent text-slate-700" />
           </div>
-          
           <div className="relative group">
-            <label className="text-[10px] uppercase tracking-widest font-semibold text-stone-400 mb-2 block transition-colors group-focus-within:text-orange-600">
-              Last Name
-            </label>
-            <input 
-              type="text" 
-              name="last-name" 
-              placeholder="consulting" 
-              required 
-              className="w-full pb-3 border-b border-stone-200 outline-none focus:border-orange-600 transition-all duration-300 bg-transparent placeholder:text-stone-300 text-slate-700" 
-            />
+            <label className="text-[10px] uppercase tracking-widest font-semibold text-stone-400 mb-2 block">Last Name</label>
+            <input type="text" name="lastName" required className="w-full pb-3 border-b border-stone-200 outline-none focus:border-orange-600 bg-transparent text-slate-700" />
           </div>
         </div>
 
-        {/* Contact Row */}
         <div className="grid md:grid-cols-2 gap-x-12 gap-y-10">
           <div className="relative group">
-            <label className="text-[10px] uppercase tracking-widest font-semibold text-stone-400 mb-2 block transition-colors group-focus-within:text-orange-600">
-              Email Address
-            </label>
-            <input 
-              type="email" 
-              name="email" 
-              placeholder="lionel@mundyopropertyconsulting.com" 
-              required 
-              className="w-full pb-3 border-b border-stone-200 outline-none focus:border-orange-600 transition-all duration-300 bg-transparent placeholder:text-stone-300 text-slate-700" 
-            />
+            <label className="text-[10px] uppercase tracking-widest font-semibold text-stone-400 mb-2 block">Email Address</label>
+            <input type="email" name="email" required className="w-full pb-3 border-b border-stone-200 outline-none focus:border-orange-600 bg-transparent text-slate-700" />
           </div>
-
           <div className="relative group">
-            <label className="text-[10px] uppercase tracking-widest font-semibold text-stone-400 mb-2 block transition-colors group-focus-within:text-orange-600">
-              Phone Number
-            </label>
-            <input 
-              type="tel" 
-              name="phone" 
-              placeholder="+1 (978) 000-0000" 
-              required
-              className="w-full pb-3 border-b border-stone-200 outline-none focus:border-orange-600 transition-all duration-300 bg-transparent placeholder:text-stone-300 text-slate-700" 
-            />
+            <label className="text-[10px] uppercase tracking-widest font-semibold text-stone-400 mb-2 block">Phone Number</label>
+            <input type="tel" name="phone" required className="w-full pb-3 border-b border-stone-200 outline-none focus:border-orange-600 bg-transparent text-slate-700" />
           </div>
         </div>
 
-        {/* Message Area */}
         <div className="relative group">
-          <label className="text-[10px] uppercase tracking-widest font-semibold text-stone-400 mb-2 block transition-colors group-focus-within:text-orange-600">
-            Project Vision & Details
-          </label>
-          <textarea 
-            name="message" 
-            rows="4" 
-            placeholder="Tell us about your investment vision..." 
-            required
-            className="w-full py-3 border-b border-stone-200 outline-none focus:border-orange-600 transition-all duration-300 bg-transparent placeholder:text-stone-300 text-slate-700 resize-none"
-          ></textarea>
+          <label className="text-[10px] uppercase tracking-widest font-semibold text-stone-400 mb-2 block">Project Vision</label>
+          <textarea name="message" rows="4" required className="w-full py-3 border-b border-stone-200 outline-none focus:border-orange-600 bg-transparent text-slate-700 resize-none"></textarea>
         </div>
 
-        {/* Submit Button */}
         <div className="pt-6">
-          <button 
-            type="submit" 
-            className="group relative w-full bg-slate-900 overflow-hidden text-white font-light uppercase tracking-[0.4em] py-6 transition-all duration-500"
-          >
+          <button type="submit" className="group relative w-full bg-slate-900 overflow-hidden text-white font-light uppercase tracking-[0.4em] py-6 transition-all duration-500">
             <span className="relative z-10">Submit Inquiry</span>
-            <div className="absolute inset-0 bg-orange-600 translate-y-[101%] group-hover:translate-y-0 transition-transform duration-500 ease-out"></div>
+            <div className="absolute inset-0 bg-orange-600 translate-y-[101%] group-hover:translate-y-0 transition-transform duration-500"></div>
           </button>
-          <p className="text-center text-[9px] text-stone-400 mt-6 uppercase tracking-widest">
-            Privacy Guaranteed &bull; Secure Transmission
-          </p>
         </div>
       </form>
     </div>
