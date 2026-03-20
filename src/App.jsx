@@ -633,8 +633,7 @@ function App() {
   </div>
 </section>
 
-     
-     <section id="form" className="py-24 bg-stone-50">
+ <section id="form" className="py-24 bg-stone-50">
   <div className="max-w-4xl mx-auto px-6">
     {/* Header Section */}
     <div className="text-center mb-16">
@@ -650,10 +649,15 @@ function App() {
         name="contact" 
         method="POST" 
         data-netlify="true" 
+        data-netlify-honeypot="bot-field"
         onSubmit={handleSubmit}
         className="space-y-10"
       >
+        {/* Hidden inputs for Netlify functionality */}
         <input type="hidden" name="form-name" value="contact" />
+        <p className="hidden">
+          <label>Don't fill this out if you're human: <input name="bot-field" /></label>
+        </p>
 
         {/* Name Row */}
         <div className="grid md:grid-cols-2 gap-x-12 gap-y-10">
@@ -707,6 +711,7 @@ function App() {
               type="tel" 
               name="phone" 
               placeholder="+1 (978) 000-0000" 
+              required
               className="w-full pb-3 border-b border-stone-200 outline-none focus:border-orange-600 transition-all duration-300 bg-transparent placeholder:text-stone-300 text-slate-700" 
             />
           </div>
