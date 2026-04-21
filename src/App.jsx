@@ -212,7 +212,7 @@ function App() {
               <h4 className="text-xl font-black uppercase tracking-tight text-slate-900">HVAC Engineering</h4>
             </div>
             <p className="text-stone-500 leading-relaxed border-l-2 border-stone-200 pl-6 group-hover:border-orange-500 transition-colors">
-              Advanced climate control including mini-split systems, high-efficiency furnace replacements, and condenser unit engineering.
+              Furnace & Condenser unit install, smart thermostat integration , ductwork design & placement. Commercial Walking freezer/coolers & RTU
             </p>
           </div>
 
