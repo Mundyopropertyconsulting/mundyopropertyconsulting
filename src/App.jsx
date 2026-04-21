@@ -159,7 +159,7 @@ function App() {
         
         {/* Download Action */}
         <a 
-          href="/public/Mpc New Flyer.png" 
+          href="/Mpc New Flyer.png" 
           download 
           className="flex items-center justify-center gap-4 w-full py-6 bg-slate-900 text-white uppercase tracking-widest font-bold rounded-xl hover:bg-orange-600 transition-colors group"
         >
