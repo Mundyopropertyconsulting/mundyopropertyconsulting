@@ -150,7 +150,7 @@ function App() {
       <div className="lg:col-span-5 space-y-8">
         <div className="relative aspect-[3/4] w-full bg-stone-100 rounded-[2rem] overflow-hidden shadow-2xl border border-stone-100 group">
           <img 
-            src="/public/Mpc New Flyer.png" 
+            src="/flyer2.png" 
             alt="Mundyo Property Consulting Flyer" 
             className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" 
           />
@@ -159,7 +159,7 @@ function App() {
         
         {/* Download Action */}
         <a 
-          href="/Mpc New Flyer.png" 
+          href="/flyer2.png" 
           download 
           className="flex items-center justify-center gap-4 w-full py-6 bg-slate-900 text-white uppercase tracking-widest font-bold rounded-xl hover:bg-orange-600 transition-colors group"
         >
