@@ -60,7 +60,7 @@ function App() {
           <div className="hidden md:flex space-x-10 text-[10px] font-black uppercase tracking-[0.3em] text-stone-500 items-center">
             <a href="#" className="hover:text-orange-600 transition-colors">Home</a>
             <a href="#vision" className="hover:text-orange-600 transition-colors">Our vision</a>
-            <a href="#portfolio" className="hover:text-orange-600 transition-colors">Portfolios</a>
+            <a href="#portfolio" className="hover:text-orange-600 transition-colors">Portfolio</a>
             <a href="#form" className="bg-orange-600 text-white px-6 py-3 rounded-full hover:bg-slate-800 transition-all shadow-lg shadow-orange-600/20">
               Start Your Project
             </a>
@@ -79,7 +79,7 @@ function App() {
         <div className={`absolute right-0 top-0 h-full w-64 bg-white shadow-2xl transition-transform duration-500 p-8 pt-24 ${isMenuOpen ? 'translate-x-0' : 'translate-x-full'}`}>
           <div className="flex flex-col space-y-8 text-sm font-bold uppercase tracking-widest text-slate-600">
             <a href="#" onClick={() => setIsMenuOpen(false)}>Home</a>
-            <a href="#advantage" onClick={() => setIsMenuOpen(false)}>The Advantage</a>
+            <a href="#vision" onClick={() => setIsMenuOpen(false)}>Our vision</a>
             <a href="#portfolio" onClick={() => setIsMenuOpen(false)}>Portfolio</a>
             <a href="#form" onClick={() => setIsMenuOpen(false)} className="text-orange-600">Start Project</a>
             <a href="#footer" onClick={() => setIsMenuOpen(false)}>Contact</a>
@@ -106,7 +106,7 @@ function App() {
     </h2>
 
     <p className="text-white/70 text-xs md:text-base mb-12 font-bold tracking-[0.4em] uppercase max-w-2xl mx-auto">
-      Home Remodeling | Heating & Cooling | New Construction | Flips Partnership
+      Home Remodeling | Heating & Cooling | New Construction | Flip Partnership
     </p>
 
     <div className="flex flex-col md:flex-row items-center justify-center gap-6">
@@ -176,7 +176,12 @@ function App() {
         {/* Vision Narrative */}
         <div className="prose prose-stone lg:prose-xl text-stone-600 font-light leading-relaxed">
           <p>
-            At <span className="font-bold text-slate-900">Mundyo Property Consulting</span>, we bridge the gap between visionary design and master-level technical execution. We don't just renovate; we engineer environments that redefine what it means to live in the future. Whether it's a high-end modernization or a complex federal contract, our team delivers elite results for those who demand perfection without compromise.
+            At <span className="font-bold text-slate-900">Mundyo Property Consulting</span>, we don’t just renovate—we bring dreams to life. 
+            Our vision is to take neglected, forgotten spaces and transform them into breathtaking realities that look like they stepped right out of a high-end digital masterpiece.
+             Whether we are building a "dreamland" from the ground up with new construction or turning a traditional house into a fully automated smart home, we are here to make 
+             "living in the future" your current reality. We believe luxury should be accessible and profitable. For those looking to grow their wealth, we invite you to partner
+              with us on exclusive remodeling and flip projects. By combining stunning design with the latest smart-home technology, we create forced appreciation that delivers exceptional returns. 
+              From a simple, elegant home fix to a massive real estate investment, our mission is to help you achieve your ultimate property goals with a team you can trust.
           </p>
         </div>
 
@@ -262,7 +267,7 @@ function App() {
             <source src="/lounge.mp4" type="video/mp4" />
           </video>
           <div className="relative h-full flex flex-col items-center justify-center text-center px-6">
-             <h3 className="text-orange-500 text-xs font-bold uppercase tracking-[0.6em] mb-6">Stop Wishing & Join Us</h3>
+             <h3 className="text-orange-500 text-xs font-bold uppercase tracking-[0.6em] mb-6"></h3>
              <h2 className="text-4xl md:text-7xl font-black text-white uppercase tracking-tighter leading-none mb-8">
                From Concept <br/> To <span className="text-orange-500">Reality</span>
              </h2>
