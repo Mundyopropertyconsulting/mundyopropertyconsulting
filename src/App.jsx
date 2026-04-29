@@ -150,7 +150,7 @@ function App() {
       <div className="lg:col-span-5 space-y-8">
         <div className="relative aspect-[3/4] w-full bg-stone-100 rounded-[2rem] overflow-hidden shadow-2xl border border-stone-100 group">
           <img 
-            src="/flyer2.png" 
+            src="/flyerNew.png" 
             alt="Mundyo Property Consulting Flyer" 
             className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" 
           />
@@ -159,7 +159,7 @@ function App() {
         
         {/* Download Action */}
         <a 
-          href="/flyer2.png" 
+          href="/flyerNew.png" 
           download 
           className="flex items-center justify-center gap-4 w-full py-6 bg-slate-900 text-white uppercase tracking-widest font-bold rounded-xl hover:bg-orange-600 transition-colors group"
         >
@@ -358,7 +358,7 @@ function App() {
 
             {/* Project 4: Modern Living */}
             <a 
-              href="https://www.instagram.com/p/DSywC1LjM1o/" 
+              href="https://www.instagram.com/p/DTWMs0dEktQ/" 
               target="_blank" 
               rel="noopener noreferrer"
               className="md:col-span-6 group relative h-[400px] md:h-[500px] overflow-hidden rounded-xl shadow-lg bg-white cursor-pointer block"
@@ -367,12 +367,12 @@ function App() {
               <div className="hidden md:block absolute inset-0">
                 <img src="/IMG_6165.jpg" className="absolute inset-0 w-full h-full object-cover z-10 opacity-100 group-hover:opacity-0 transition-all duration-[1.2s]" alt="Before" />
                 <video autoPlay muted loop playsInline className="absolute inset-0 w-full h-full object-cover z-0 group-hover:z-20 opacity-0 group-hover:opacity-100 transition-opacity duration-[1.2s]">
-                  <source src="/lounge.mp4" type="video/mp4" />
+                  <source src="/bathroom pink.mp4" type="video/mp4" />
                 </video>
               </div>
               <div className="absolute inset-0 flex flex-col justify-end p-8 bg-gradient-to-t from-black/90 via-black/20 to-transparent z-30 opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-700">
                 <p className="text-orange-400 text-[10px] font-black uppercase tracking-[0.4em] mb-2">Modern Living</p>
-                <h4 className="text-2xl text-white font-light tracking-widest uppercase mb-4">3D Media Enclave</h4>
+                <h4 className="text-2xl text-white font-light tracking-widest uppercase mb-4">Beyond Your imagination</h4>
                 <span className="text-white/60 text-[9px] uppercase tracking-widest font-bold">View on Instagram →</span>
               </div>
             </a>
